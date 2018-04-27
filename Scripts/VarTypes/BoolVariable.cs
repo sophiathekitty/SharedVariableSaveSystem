@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Variables/Bool Variable")]
-public class BoolVariable : ScriptableObject, ISerializationCallbackReceiver, ISavable
+public class BoolVariable : SavableVariable, ISerializationCallbackReceiver
 {
     public bool InitialValue;
+    [System.NonSerialized]
     public bool RuntimeValue;
 
     // ISerializationCallbackReceiver
@@ -13,12 +14,12 @@ public class BoolVariable : ScriptableObject, ISerializationCallbackReceiver, IS
     public void OnBeforeSerialize() { /*do nothing*/ }
 
     // ISavable
-    public void OnLoadData(string data)
+    public override void OnLoadData(string data)
     {
         RuntimeValue = bool.Parse(data);
     }
 
-    public KeyValuePair<string, string> OnSaveData()
+    public override KeyValuePair<string, string> OnSaveData()
     {
         return new KeyValuePair<string, string>(name, RuntimeValue.ToString());
     }

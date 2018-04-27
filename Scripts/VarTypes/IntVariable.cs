@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Variables/Int Variable")]
-public class IntVariable : ScriptableObject, ISerializationCallbackReceiver, ISavable {
+public class IntVariable : SavableVariable, ISerializationCallbackReceiver {
     public int InitialValue;
-    public int MinValue;
-    public int MaxValue;
+    public int MinValue = 0;
+    public int MaxValue = 100;
 
     [System.NonSerialized]
     private int _RuntimeValue;
@@ -34,12 +34,12 @@ public class IntVariable : ScriptableObject, ISerializationCallbackReceiver, ISa
         CheckRange();
     }
 
-    public void OnLoadData(string data)
+    public override void OnLoadData(string data)
     {
         RuntimeValue = int.Parse(data);
     }
 
-    public KeyValuePair<string, string> OnSaveData()
+    public override KeyValuePair<string, string> OnSaveData()
     {
         return new KeyValuePair<string, string>(name, RuntimeValue.ToString());
     }

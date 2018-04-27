@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Variables/Float Variable")]
-public class FloatVariable : ScriptableObject, ISerializationCallbackReceiver, ISavable {
+public class FloatVariable : SavableVariable, ISerializationCallbackReceiver {
     public float InitialValue;
-    public float MinValue;
-    public float MaxValue;
+    public float MinValue = 0;
+    public float MaxValue = 1;
 
     [System.NonSerialized]
     private float _RuntimeValue;
@@ -55,12 +55,12 @@ public class FloatVariable : ScriptableObject, ISerializationCallbackReceiver, I
             _RuntimeValue = RuntimeMin;
     }
 
-    public KeyValuePair<string, string> OnSaveData()
+    public override KeyValuePair<string, string> OnSaveData()
     {
         return new KeyValuePair<string, string>(name, RuntimeValue.ToString());
     }
 
-    public void OnLoadData(string data)
+    public override void OnLoadData(string data)
     {
         RuntimeValue = float.Parse(data);
     }
