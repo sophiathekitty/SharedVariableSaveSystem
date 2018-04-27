@@ -28,6 +28,7 @@ public class SaveObject : ScriptableObject {
         foreach(SavableVariable d in data)
         {
             KeyValuePair<string, string> kvp = d.OnSaveData();
+            Debug.Log("Save: " + kvp.Key + " = " + kvp.Value);
             if (_data.data.ContainsKey(kvp.Key))
                 _data.data[kvp.Key] = kvp.Value;
             else
@@ -53,16 +54,23 @@ public class SaveObject : ScriptableObject {
             // go through data and load values from _data if they exist.
             foreach (SavableVariable d in data)
             {
-                KeyValuePair<string, string> kvp = d.OnSaveData();
-                if (_data.data.ContainsKey(kvp.Key))
-                    d.OnLoadData(kvp.Value);
+                Debug.Log("Load: " + d.name + " = " + _data.data[d.name]);
+                if (_data.data.ContainsKey(d.name))
+                    d.OnLoadData(_data.data[d.name]);
             }
         }
+    }
+    public void clearSaveData()
+    {
+        // remove saved data...
+        if(File.Exists(savePath))
+            File.Delete(savePath);
+
     }
 
     [System.Serializable]
     private class SaveData
     {
-        public Dictionary<string, string> data;
+        public Dictionary<string, string> data = new Dictionary<string, string>();
     }
 }
