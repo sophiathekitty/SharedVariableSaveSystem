@@ -19,8 +19,8 @@ public class BoolVariable : SavableVariable, ISerializationCallbackReceiver
         RuntimeValue = bool.Parse(data);
     }
 
-    public override KeyValuePair<string, string> OnSaveData()
+    public override string OnSaveData()
     {
-        return new KeyValuePair<string, string>(name, RuntimeValue.ToString());
+        return RuntimeValue.ToString();
     }
 }

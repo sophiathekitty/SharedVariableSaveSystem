@@ -18,21 +18,19 @@ public class SaveObject : ScriptableObject {
         }
     }
     public SavableVariable[] data;
-    private SaveData _data;
+    private SaveDataObject _data;
 
-    public void saveData()
+    public void SaveData()
     {
-        _data = new SaveData();
+        _data = new SaveDataObject();
 
         // run through the data and store it in _data;
         foreach(SavableVariable d in data)
         {
-            KeyValuePair<string, string> kvp = d.OnSaveData();
-            Debug.Log("Save: " + kvp.Key + " = " + kvp.Value);
-            if (_data.data.ContainsKey(kvp.Key))
-                _data.data[kvp.Key] = kvp.Value;
+            if (_data.data.ContainsKey(d.name))
+                _data.data[d.name] = d.OnSaveData();
             else
-                _data.data.Add(kvp.Key, kvp.Value);
+                _data.data.Add(d.name, d.OnSaveData());
         }
 
         // save the data to a binary file
@@ -42,19 +40,18 @@ public class SaveObject : ScriptableObject {
         file.Close();
 
     }
-    public void loadData()
+    public void LoadData()
     {
         if (File.Exists(savePath))
         {
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.OpenRead(savePath);
-            _data = (SaveData)bf.Deserialize(file);
+            _data = (SaveDataObject)bf.Deserialize(file);
             file.Close();
 
             // go through data and load values from _data if they exist.
             foreach (SavableVariable d in data)
             {
-                Debug.Log("Load: " + d.name + " = " + _data.data[d.name]);
                 if (_data.data.ContainsKey(d.name))
                     d.OnLoadData(_data.data[d.name]);
             }
@@ -69,7 +66,7 @@ public class SaveObject : ScriptableObject {
     }
 
     [System.Serializable]
-    private class SaveData
+    private class SaveDataObject
     {
         public Dictionary<string, string> data = new Dictionary<string, string>();
     }

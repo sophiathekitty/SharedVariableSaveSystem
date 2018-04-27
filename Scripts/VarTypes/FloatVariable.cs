@@ -55,9 +55,9 @@ public class FloatVariable : SavableVariable, ISerializationCallbackReceiver {
             _RuntimeValue = RuntimeMin;
     }
 
-    public override KeyValuePair<string, string> OnSaveData()
+    public override string OnSaveData()
     {
-        return new KeyValuePair<string, string>(name, RuntimeValue.ToString());
+        return RuntimeValue.ToString();
     }
 
     public override void OnLoadData(string data)

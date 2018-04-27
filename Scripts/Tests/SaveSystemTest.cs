@@ -23,13 +23,13 @@ namespace Tests
 
             yield return null;
 
-            saveObject.saveData();
+            saveObject.SaveData();
 
             FileAssert.Exists(saveObject.savePath);
             // blank out the data to simulate that it's been unloaded
             testIntData.RuntimeValue = testIntData.InitialValue;
 
-            saveObject.loadData();
+            saveObject.LoadData();
             Assert.AreEqual(testData, testIntData.RuntimeValue);
             saveObject.clearSaveData();
 

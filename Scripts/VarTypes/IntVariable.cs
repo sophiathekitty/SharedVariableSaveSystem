@@ -39,9 +39,9 @@ public class IntVariable : SavableVariable, ISerializationCallbackReceiver {
         RuntimeValue = int.Parse(data);
     }
 
-    public override KeyValuePair<string, string> OnSaveData()
+    public override string OnSaveData()
     {
-        return new KeyValuePair<string, string>(name, RuntimeValue.ToString());
+        return RuntimeValue.ToString();
     }
 
     private void CheckRange()
