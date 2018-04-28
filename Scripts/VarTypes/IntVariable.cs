@@ -5,34 +5,17 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Variables/Int Variable")]
 public class IntVariable : SavableVariable, ISerializationCallbackReceiver {
     public int InitialValue;
-    public int MinValue = 0;
-    public int MaxValue = 100;
 
     [System.NonSerialized]
-    private int _RuntimeValue;
+    public int RuntimeValue;
 
-    public int RuntimeValue
-    {
-        get
-        {
-            return _RuntimeValue;
-        }
-        set
-        {
-            _RuntimeValue = value;
-            CheckRange();
-        }
-    }
 
     public void OnAfterDeserialize()
     {
         RuntimeValue = InitialValue;
     }
 
-    public void OnBeforeSerialize()
-    {
-        CheckRange();
-    }
+    public void OnBeforeSerialize() { /* do nothing */ }
 
     public override void OnLoadData(string data)
     {
@@ -44,17 +27,4 @@ public class IntVariable : SavableVariable, ISerializationCallbackReceiver {
         return RuntimeValue.ToString();
     }
 
-    private void CheckRange()
-    {
-        if (MinValue > MaxValue)
-        {
-            int v = MinValue;
-            MinValue = MaxValue;
-            MaxValue = v;
-        }
-        if (RuntimeValue > MaxValue)
-            RuntimeValue = MaxValue;
-        if (RuntimeValue < MinValue)
-            RuntimeValue = MinValue;
-    }
 }
