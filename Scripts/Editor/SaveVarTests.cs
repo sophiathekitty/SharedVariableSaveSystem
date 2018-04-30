@@ -75,6 +75,19 @@ namespace SharedVariableSaveSystemTests
             test.OnLoadData(test.OnSaveData());
             Assert.AreEqual(testData, test.RuntimeValue);
         }
-    }
 
-}
+        [UnityTest]
+        public IEnumerator Vector3Int_save_load()
+        {
+            Vector3Int testData = new Vector3Int(1, 2, 3);
+            Vector3IntVariable test = new Vector3IntVariable
+            {
+                RuntimeValue = testData
+            };
+            yield return null;
+            test.OnLoadData(test.OnSaveData());
+            Assert.AreEqual(testData, test.RuntimeValue);
+        }
+
+    } // class
+} // namespace
