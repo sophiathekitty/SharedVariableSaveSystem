@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.TestTools;
 using NUnit.Framework;
 
-namespace Tests
+namespace SharedVariableSaveSystemTests
 {
     [TestFixture]
     public class SaveSystemTest
