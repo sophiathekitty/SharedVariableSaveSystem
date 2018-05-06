@@ -88,6 +88,24 @@ namespace SharedVariableSaveSystemTests
             test.OnLoadData(test.OnSaveData());
             Assert.AreEqual(testData, test.RuntimeValue);
         }
+        [UnityTest]
+        public IEnumerator Transform_save_load()
+        {
+            Vector3 testPosition = new Vector3(1, 2, 3);
+            Vector3 testRotation = new Vector3(4, 5, 6);
+            Vector3 testScale = new Vector3(7, 8, 9);
+            TransformVariable test = new TransformVariable
+            {
+                RuntimePosition = testPosition,
+                RuntimeRotation = testRotation,
+                RuntimeScale = testScale
+            };
+            yield return null;
+            test.OnLoadData(test.OnSaveData());
+            Assert.AreEqual(testPosition, test.RuntimePosition);
+            Assert.AreEqual(testRotation, test.RuntimeRotation);
+            Assert.AreEqual(testScale, test.RuntimeScale);
+        }
 
     } // class
 } // namespace
