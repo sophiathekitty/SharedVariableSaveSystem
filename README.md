@@ -22,7 +22,7 @@ Based on this tutorial: https://unity3d.com/how-to/architect-with-Scriptable-Obj
 * void clearSaveData() - deletes the save file if it exists
 
 ## SavableVariable (Abstract class)
-###Abstract Methods
+### Abstract Methods
 * string OnSaveData() - returns data to be saved as a string
 * void OnLoadData(string data) - pass string data to be loaded
 
