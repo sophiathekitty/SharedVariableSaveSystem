@@ -2,57 +2,57 @@
 Some scriptable objects for sharing data between game elements and a system for saving the runtime values of those shared variables.
 Based on this tutorial: https://unity3d.com/how-to/architect-with-Scriptable-Objects
 
-#Classes
+# Classes
 
-##SaveObject
-###Properties
+## SaveObject
+### Properties
 * SaveFileName - the save file name.
 * SaveFilePath - the path to the save file. (blank uses default location)
 * Data - list of SavableVariables.
-###Methods
+### Methods
 * void SaveData() - saves the Data to a file
 * void LoadData() - loads the Data from a file
 * void clearSaveData() - deletes the save file if it exists
 
-##SavableVariable (Abstract class)
+## SavableVariable (Abstract class)
 ###Abstract Methods
 * string OnSaveData() - returns data to be saved as a string
 * void OnLoadData(string data) - pass string data to be loaded
 
-#Variable Types
+# Variable Types
 
-##BoolVariable : SavableVariable
-###Properties
+## BoolVariable : SavableVariable
+### Properties
 * bool InitialValue - the initial/default value
 * bool RuntimeValue - the runtime value (this is what's saved and loaded)
 
-##FloatVariable : SavableVariable
-###Properties
+## FloatVariable : SavableVariable
+### Properties
 * float InitialValue - the initial/default value
 * float RuntimeValue - the runtime value (this is what's saved and loaded)
 
-##IntVariable : SavableVariable
-###Properties
+## IntVariable : SavableVariable
+### Properties
 * int InitialValue - the initial/default value
 * int RuntimeValue - the runtime value (this is what's saved and loaded)
 
-##StringVariable : SavableVariable
-###Properties
+## StringVariable : SavableVariable
+### Properties
 * string InitialValue - the initial/default value
 * string RuntimeValue - the runtime value (this is what's saved and loaded)
 
-##Vector3Variable : SavableVariable
-###Properties
+## Vector3Variable : SavableVariable
+### Properties
 * Vector3 InitialValue - the initial/default value
 * Vector3 RuntimeValue - the runtime value (this is what's saved and loaded)
 
-##Vector3IntVariable : SavableVariable
-###Properties
+## Vector3IntVariable : SavableVariable
+### Properties
 * Vector3Int InitialValue - the initial/default value
 * Vector3Int RuntimeValue - the runtime value (this is what's saved and loaded)
 
-##TranformVariable : SavableVariable
-###Properties
+## TranformVariable : SavableVariable
+### Properties
 * Vector3 InitialPosition - the initial/default position
 * Vector3 InitialRotation - the initial/default rotation
 * Vector3 InitialScale - the initial/default scale
