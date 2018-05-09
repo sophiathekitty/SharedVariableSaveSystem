@@ -21,6 +21,7 @@ public class Vector3Variable : SavableVariable, ISerializationCallbackReceiver {
     {
         string[] values = data.Split(',');
         RuntimeValue = new Vector3(float.Parse(values[0]), float.Parse(values[1]), float.Parse(values[2]));
+        loaded = true;
     }
 
     public override string OnSaveData()

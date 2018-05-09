@@ -25,5 +25,6 @@ public class FloatVariable : SavableVariable, ISerializationCallbackReceiver {
     public override void OnLoadData(string data)
     {
         RuntimeValue = float.Parse(data);
+        loaded = true;
     }
 }

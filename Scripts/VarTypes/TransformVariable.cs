@@ -37,6 +37,8 @@ public class TransformVariable : SavableVariable {
         // postion
         string[] valuesS = values[2].Split(',');
         RuntimeScale = new Vector3(float.Parse(valuesS[0]), float.Parse(valuesS[1]), float.Parse(valuesS[2]));
+
+        loaded = true;
     }
 
     public override string OnSaveData()

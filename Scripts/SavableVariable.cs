@@ -5,4 +5,6 @@ using UnityEngine;
 public abstract class SavableVariable : ScriptableObject {
     public abstract string OnSaveData();
     public abstract void OnLoadData(string data);
+    [System.NonSerialized]
+    public bool loaded = false;
 }

@@ -17,6 +17,7 @@ public class BoolVariable : SavableVariable, ISerializationCallbackReceiver
     public override void OnLoadData(string data)
     {
         RuntimeValue = bool.Parse(data);
+        loaded = true;
     }
 
     public override string OnSaveData()
