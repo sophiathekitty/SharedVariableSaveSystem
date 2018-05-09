@@ -4,9 +4,9 @@ Based on this tutorial: https://unity3d.com/how-to/architect-with-Scriptable-Obj
 
 
 # How to use
-* Create a new SaveObject (under the assset create menu)
-* Create Variables you want to have saved (Asssets->Create->Variables)
-* Add Variables to SaveObject's Data list.
+* Create a new *SaveObject* (under the assset create menu)
+* Create *Variables* you want to have saved (Asssets->Create->Variables)
+* Add *Variables* to *SaveObject's* Data list.
 * Write classes use Variables to store and share data. 
 
 # Classes
