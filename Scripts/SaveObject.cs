@@ -17,6 +17,13 @@ public class SaveObject : ScriptableObject {
             return saveFilePath + saveFileName;
         }
     }
+    public bool hasSave
+    {
+        get
+        {
+            return File.Exists(savePath);
+        }
+    }
     public SavableVariable[] data;
     private SaveDataObject _data;
 
