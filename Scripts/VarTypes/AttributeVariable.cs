@@ -42,6 +42,13 @@ public class AttributeVariable : SavableVariable, ISerializationCallbackReceiver
     [System.NonSerialized]
     public float RuntimeUnavailable;
 
+    public float Percent
+    {
+        get
+        {
+            return RuntimeValue / RuntimeMax;
+        }
+    }
 
     public void OnAfterDeserialize()
     {

@@ -4,13 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class PercentBar : MonoBehaviour {
-    public FloatVariable fillLevel;
+
+    public AttributeVariable attribute;
+
     private float cFill, oFill, cCap, oCap;
-    public FloatVariable fillMaxDynamic;
-    public float fillMaxStatic = 100;
     public Image fill_bar;
     public Image fill_bar_change;
-    public FloatVariable capLevel;
     public Image cap_bar;
     public Image cap_bar_change;
     public bool cap_attached;
@@ -20,9 +19,7 @@ public class PercentBar : MonoBehaviour {
     {
         get
         {
-            if (fillMaxDynamic == null)
-                return fillMaxStatic;
-            return fillMaxDynamic.RuntimeValue;
+            return attribute.RuntimeMax;
         }
     }
 
@@ -30,9 +27,7 @@ public class PercentBar : MonoBehaviour {
     {
         get
         {
-            if (fillLevel == null)
-                return 0f;
-            return fillLevel.RuntimeValue / FillMax;
+            return attribute.Percent;
         }
     }
 
@@ -40,9 +35,7 @@ public class PercentBar : MonoBehaviour {
     {
         get
         {
-            if (capLevel == null)
-                return 0f;
-            return capLevel.RuntimeValue / FillMax;
+            return attribute.RuntimeUnavailable / FillMax;
         }
     }
 
@@ -53,7 +46,7 @@ public class PercentBar : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (fillLevel == null)
+        if (attribute == null)
             return;
         if(fill_bar_change != null &&
             cFill != FillPercent)
@@ -74,8 +67,6 @@ public class PercentBar : MonoBehaviour {
                 oFill = fill_bar_change.fillAmount = Mathf.Lerp(oFill, cFill, Time.deltaTime * change_rate);
         }
 
-        if (capLevel == null)
-            return;
         if (cap_bar_change != null &&
             cCap != CapPercent)
         {
