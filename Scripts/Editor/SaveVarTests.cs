@@ -107,5 +107,24 @@ namespace SharedVariableSaveSystemTests
             Assert.AreEqual(testScale, test.RuntimeScale);
         }
 
+        [UnityTest]
+        public IEnumerator Attribute_save_load()
+        {
+            float v1 = 40;
+            float v2 = 100;
+            float v3 = 20;
+            AttributeVariable test = new AttributeVariable
+            {
+                RuntimeValue = v1,
+                RuntimeMax = v2,
+                RuntimeUnavailable = v3
+            };
+            yield return null;
+            test.OnLoadData(test.OnSaveData());
+            Assert.AreEqual(v1, test.RuntimeValue);
+            Assert.AreEqual(v2, test.RuntimeMax);
+            Assert.AreEqual(v3, test.RuntimeUnavailable);
+        }
+
     } // class
 } // namespace
