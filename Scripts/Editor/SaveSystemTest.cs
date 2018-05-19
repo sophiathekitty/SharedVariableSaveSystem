@@ -18,8 +18,8 @@ namespace SharedVariableSaveSystemTests
             IntVariable testIntData = new IntVariable();
             testIntData.name = "TestData";
             testIntData.RuntimeValue = testData;
-            saveObject.data = new SavableVariable[1];
-            saveObject.data[0] = testIntData;
+            saveObject.data = new List<SavableVariable>();
+            saveObject.data.Add(testIntData);
 
             yield return null;
 

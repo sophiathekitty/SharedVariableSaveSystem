@@ -24,7 +24,7 @@ public class SaveObject : ScriptableObject {
             return File.Exists(savePath);
         }
     }
-    public SavableVariable[] data;
+    public List<SavableVariable> data;
     private SaveDataObject _data;
 
     public void SaveData()
