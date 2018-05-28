@@ -34,10 +34,10 @@ public class SaveObject : ScriptableObject {
         // run through the data and store it in _data;
         foreach(SavableVariable d in data)
         {
-            if (_data.data.ContainsKey(d.name))
-                _data.data[d.name] = d.OnSaveData();
+            if (_data.data.ContainsKey(d.GetInstanceID()))
+                _data.data[d.GetInstanceID()] = d.OnSaveData();
             else
-                _data.data.Add(d.name, d.OnSaveData());
+                _data.data.Add(d.GetInstanceID(), d.OnSaveData());
         }
 
         // save the data to a binary file
@@ -59,8 +59,8 @@ public class SaveObject : ScriptableObject {
             // go through data and load values from _data if they exist.
             foreach (SavableVariable d in data)
             {
-                if (_data.data.ContainsKey(d.name))
-                    d.OnLoadData(_data.data[d.name]);
+                if (_data.data.ContainsKey(d.GetInstanceID()))
+                    d.OnLoadData(_data.data[d.GetInstanceID()]);
             }
         }
     }
@@ -75,6 +75,6 @@ public class SaveObject : ScriptableObject {
     [System.Serializable]
     private class SaveDataObject
     {
-        public Dictionary<string, string> data = new Dictionary<string, string>();
+        public Dictionary<int, string> data = new Dictionary<int, string>();
     }
 }
