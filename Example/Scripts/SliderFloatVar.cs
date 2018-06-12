@@ -10,8 +10,12 @@ public class SliderFloatVar : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         slider = GetComponent<Slider>();
+        UpdateSlider();
+    }
+    public void UpdateSlider()
+    {
         slider.value = variable.RuntimeValue;
-	}
+    }
     private void Update()
     {
         UpdateVariable();
