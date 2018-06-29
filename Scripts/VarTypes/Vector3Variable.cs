@@ -28,4 +28,9 @@ public class Vector3Variable : SavableVariable, ISerializationCallbackReceiver {
     {
         return RuntimeValue.x.ToString()+","+RuntimeValue.y.ToString()+","+RuntimeValue.z.ToString();
     }
+    public override void OnClearSave()
+    {
+        OnAfterDeserialize();
+    }
+
 }

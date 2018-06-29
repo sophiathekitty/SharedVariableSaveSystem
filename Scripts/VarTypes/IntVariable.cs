@@ -27,5 +27,9 @@ public class IntVariable : SavableVariable, ISerializationCallbackReceiver {
     {
         return RuntimeValue.ToString();
     }
+    public override void OnClearSave()
+    {
+        OnAfterDeserialize();
+    }
 
 }

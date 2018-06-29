@@ -27,4 +27,9 @@ public class StringVariable : SavableVariable, ISerializationCallbackReceiver
     {
         return RuntimeValue;
     }
+    public override void OnClearSave()
+    {
+        OnAfterDeserialize();
+    }
+
 }

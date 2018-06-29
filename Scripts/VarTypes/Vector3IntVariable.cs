@@ -29,4 +29,9 @@ public class Vector3IntVariable : SavableVariable, ISerializationCallbackReceive
     {
         return RuntimeValue.x.ToString() + "," + RuntimeValue.y.ToString() + "," + RuntimeValue.z.ToString();
     }
+    public override void OnClearSave()
+    {
+        OnAfterDeserialize();
+    }
+
 }

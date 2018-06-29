@@ -24,4 +24,10 @@ public class BoolVariable : SavableVariable, ISerializationCallbackReceiver
     {
         return RuntimeValue.ToString();
     }
+
+    public override void OnClearSave()
+    {
+        OnAfterDeserialize();
+    }
+
 }

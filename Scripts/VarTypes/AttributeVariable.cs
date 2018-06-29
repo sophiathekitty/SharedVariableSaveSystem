@@ -58,7 +58,7 @@ public class AttributeVariable : SavableVariable, ISerializationCallbackReceiver
     }
 
     public void OnBeforeSerialize() { /* do nothing */ }
-
+    
     public override string OnSaveData()
     {
         return RuntimeValue.ToString()+","+RuntimeMax.ToString()+","+RuntimeUnavailable.ToString();
@@ -71,5 +71,10 @@ public class AttributeVariable : SavableVariable, ISerializationCallbackReceiver
         RuntimeMax = float.Parse(datas[1]);
         RuntimeUnavailable = float.Parse(datas[2]);
         loaded = true;
+    }
+
+    public override void OnClearSave()
+    {
+        OnAfterDeserialize();
     }
 }
