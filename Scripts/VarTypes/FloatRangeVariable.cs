@@ -7,6 +7,7 @@ public class FloatRangeVariable : SavableVariable, ISerializationCallbackReceive
 {
     public float MinValue;
     public float MaxValue;
+    public float InitialValue;
     public bool Descending;
 
     [System.NonSerialized]
@@ -51,7 +52,7 @@ public class FloatRangeVariable : SavableVariable, ISerializationCallbackReceive
 
     public void OnAfterDeserialize()
     {
-        RuntimeValue = MinValue;
+        RuntimeValue = InitialValue;
     }
 
     public void OnBeforeSerialize() { /* do nothing */ }

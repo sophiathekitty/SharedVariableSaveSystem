@@ -7,6 +7,7 @@ public class IntRangeVariable : SavableVariable, ISerializationCallbackReceiver
 {
     public int MinValue;
     public int MaxValue;
+    public int InitialValue;
     public bool Descending;
 
     [System.NonSerialized]
@@ -51,7 +52,7 @@ public class IntRangeVariable : SavableVariable, ISerializationCallbackReceiver
 
     public void OnAfterDeserialize()
     {
-        RuntimeValue = MinValue;
+        RuntimeValue = InitialValue;
     }
 
     public void OnBeforeSerialize() { /* do nothing */ }
