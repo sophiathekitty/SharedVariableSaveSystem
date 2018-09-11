@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Variables/Float Range Variable")]
-public class FloatRangeVariable : SavableVariable, ISerializationCallbackReceiver
+public class FloatRangeVariable : SavableVariable, ISerializationCallbackReceiver, IRangeVariable
 {
     public float MinValue;
     public float MaxValue;
@@ -72,4 +72,13 @@ public class FloatRangeVariable : SavableVariable, ISerializationCallbackReceive
         OnAfterDeserialize();
     }
 
+    public float GetPercent()
+    {
+        return Percent;
+    }
+
+    public void SetPercent(float percent)
+    {
+        Percent = percent;
+    }
 }
