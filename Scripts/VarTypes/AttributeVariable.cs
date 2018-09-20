@@ -44,6 +44,8 @@ public class AttributeVariable : SharedVariable<float>
     {
         get
         {
+            if (RuntimeMax == 0)
+                return 0;
             return RuntimeValue / RuntimeMax;
         }
     }

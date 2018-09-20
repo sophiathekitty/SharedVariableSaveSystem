@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Variables/Float Range Variable")]
-public class FloatRangeVariable : SharedVariable<float>, IRangeVariable
+public class FloatRangeVariable : RangeVariable<float>
 {
-    public float MinValue;
+/*    public float MinValue;
     public float MaxValue;
     public bool Descending;
 
@@ -45,20 +45,10 @@ public class FloatRangeVariable : SharedVariable<float>, IRangeVariable
         if (base.RuntimeValue < MinValue)
             base.RuntimeValue = MinValue;
     }
-
+    */
     public override void OnLoadData(string data)
     {
         RuntimeValue = float.Parse(data);
         loaded = true;
-    }
-
-    public float GetPercent()
-    {
-        return Percent;
-    }
-
-    public void SetPercent(float percent)
-    {
-        Percent = percent;
     }
 }

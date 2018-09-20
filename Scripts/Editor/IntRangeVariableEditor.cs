@@ -8,8 +8,27 @@ public class IntRangeVariableEditor : Editor
 {
     public override void OnInspectorGUI()
     {
-        base.OnInspectorGUI();
+        //base.OnInspectorGUI();
         IntRangeVariable intVariable = (IntRangeVariable)target;
+
+
+        intVariable.Descending = EditorGUILayout.Toggle("Descending", intVariable.Descending);
+        if (intVariable.Descending)
+        {
+            intVariable.MaxValue = EditorGUILayout.IntField("Max Value", intVariable.MaxValue);
+            intVariable.MinValue = EditorGUILayout.IntField("Min Value", intVariable.MinValue);
+            intVariable.InitialValue = (int)EditorGUILayout.Slider("Initial Value", intVariable.InitialValue, intVariable.MaxValue, intVariable.MinValue);
+        }
+        else
+        {
+            intVariable.MinValue = EditorGUILayout.IntField("Min Value", intVariable.MinValue);
+            intVariable.MaxValue = EditorGUILayout.IntField("Max Value", intVariable.MaxValue);
+            intVariable.InitialValue = (int)EditorGUILayout.Slider("Initial Value", intVariable.InitialValue, intVariable.MinValue, intVariable.MaxValue);
+        }
+
+
+        if (Application.isPlaying)
+            intVariable.RuntimeValue = EditorGUILayout.IntField("Runtime Value", intVariable.RuntimeValue);
         GUILayout.Label("Runtime Value: " + intVariable.RuntimeValue.ToString());
     }
 
