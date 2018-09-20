@@ -29,7 +29,7 @@ Based on this tutorial: https://unity3d.com/how-to/architect-with-Scriptable-Obj
 * void OnLoadData(string data) - pass string data to be loaded
 * void OnClearSave() - reset the data
 
-## SharedVariable<T> : SavableVariable, ISerializationCallbackReceiver (Abstract Generic class)
+## SharedVariable&lt;T> : SavableVariable, ISerializationCallbackReceiver (Abstract Generic class)
 ### Generic Properties
 * T InitialValue - the initial/default value
 * T RuntimeValue {get; set;} - the runtime value (this is what's saved and loaded)
@@ -40,33 +40,33 @@ Based on this tutorial: https://unity3d.com/how-to/architect-with-Scriptable-Obj
 
 # Variable Types
 
-## BoolVariable : SharedVariable<bool>
+## BoolVariable : SharedVariable&lt;bool>
 
-## FloatVariable : SharedVariable<float>
+## FloatVariable : SharedVariable&lt;float>
 
-## IntVariable : SharedVariable<int>
+## IntVariable : SharedVariable&lt;int>
 
-## StringVariable : SharedVariable<string>
+## StringVariable : SharedVariable&lt;string>
 
-## Vector3Variable : SharedVariable<Vector3>
+## Vector3Variable : SharedVariable&lt;Vector3>
 
-## Vector3IntVariable : SharedVariable<Vector3Int>
+## Vector3IntVariable : SharedVariable&lt;Vector3Int>
 
-## FloatRangeVariable : SharedVariable<float>
+## FloatRangeVariable : SharedVariable&lt;float>
 ### Properties
 * float MinValue - the min value of the range
 * float MaxValue - the max value of the range
 * bool Descending - if true min value is 100% and max is 0%
 * float Percent - percentage between min and max
 
-## IntRangeBariable : SharedVariable<int>
+## IntRangeBariable : SharedVariable&lt;int>
 ### Properties
 * int MinValue - the min value of the range
 * int MaxValue - the max value of the range
 * bool Descending - if true min value is 100% and max is 0%
 * float Percent - percentage between min and max
 
-## AttributeVariable : SharedVariable<float>
+## AttributeVariable : SharedVariable&lt;float>
 ## Properties
 * float InitialMax - the initial/default max value
 * float RuntimeMax - the runtime max value (this is what's saved and loaded)
