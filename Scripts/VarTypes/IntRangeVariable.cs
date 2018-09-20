@@ -3,25 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Variables/Int Range Variable")]
-public class IntRangeVariable : SavableVariable, ISerializationCallbackReceiver, IRangeVariable
+public class IntRangeVariable : SharedVariable<int>, IRangeVariable
 {
     public int MinValue;
     public int MaxValue;
-    public int InitialValue;
     public bool Descending;
 
-    [System.NonSerialized]
-    private int _RuntimeValue;
-
-    public int RuntimeValue
+    public override int RuntimeValue
     {
         get
         {
-            return _RuntimeValue;
+            return base.RuntimeValue;
         }
         set
         {
-            _RuntimeValue = value;
+            base.RuntimeValue = value;
             FitToRange();
         }
     }
@@ -30,46 +26,30 @@ public class IntRangeVariable : SavableVariable, ISerializationCallbackReceiver,
         get
         {
             if (Descending)
-                return (1 - (((float)_RuntimeValue - (float)MinValue) / ((float)MaxValue - (float)MinValue)));
-            return (((float)_RuntimeValue - (float)MinValue) / ((float)MaxValue - (float)MinValue));
+                return (1 - (((float)base.RuntimeValue - (float)MinValue) / ((float)MaxValue - (float)MinValue)));
+            return (((float)base.RuntimeValue - (float)MinValue) / ((float)MaxValue - (float)MinValue));
         }
         set
         {
             if (Descending)
-                _RuntimeValue = Mathf.RoundToInt(Mathf.Lerp((float)MaxValue, (float)MinValue, (float)value));
+                base.RuntimeValue = Mathf.RoundToInt(Mathf.Lerp((float)MaxValue, (float)MinValue, (float)value));
             else
-                _RuntimeValue = Mathf.RoundToInt(Mathf.Lerp((float)MinValue, (float)MaxValue, (float)value));
+                base.RuntimeValue = Mathf.RoundToInt(Mathf.Lerp((float)MinValue, (float)MaxValue, (float)value));
             FitToRange();
         }
     }
     private void FitToRange()
     {
-        if (_RuntimeValue > MaxValue)
-            _RuntimeValue = MaxValue;
-        if (_RuntimeValue < MinValue)
-            _RuntimeValue = MinValue;
-    }
-
-    public void OnAfterDeserialize()
-    {
-        RuntimeValue = InitialValue;
-    }
-
-    public void OnBeforeSerialize() { /* do nothing */ }
-
-    public override string OnSaveData()
-    {
-        return RuntimeValue.ToString();
+        if (base.RuntimeValue > MaxValue)
+            base.RuntimeValue = MaxValue;
+        if (base.RuntimeValue < MinValue)
+            base.RuntimeValue = MinValue;
     }
 
     public override void OnLoadData(string data)
     {
         RuntimeValue = int.Parse(data);
         loaded = true;
-    }
-    public override void OnClearSave()
-    {
-        OnAfterDeserialize();
     }
 
     public float GetPercent()
