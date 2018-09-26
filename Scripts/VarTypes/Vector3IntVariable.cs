@@ -3,21 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Variables/Vector3Int Variable")]
-public class Vector3IntVariable : SavableVariable, ISerializationCallbackReceiver
+public class Vector3IntVariable : SharedVariable<Vector3Int>
 {
-    public Vector3Int InitialValue;
-
-    [System.NonSerialized]
-    public Vector3Int RuntimeValue;
-
-
-    public void OnAfterDeserialize()
-    {
-        RuntimeValue = new Vector3Int(InitialValue.x, InitialValue.y, InitialValue.z);
-    }
-
-    public void OnBeforeSerialize() { /* do nothing */ }
-
     public override void OnLoadData(string data)
     {
         string[] values = data.Split(',');
@@ -29,9 +16,4 @@ public class Vector3IntVariable : SavableVariable, ISerializationCallbackReceive
     {
         return RuntimeValue.x.ToString() + "," + RuntimeValue.y.ToString() + "," + RuntimeValue.z.ToString();
     }
-    public override void OnClearSave()
-    {
-        OnAfterDeserialize();
-    }
-
 }

@@ -3,19 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Variables/Vector3 Variable")]
-public class Vector3Variable : SavableVariable, ISerializationCallbackReceiver {
-    public Vector3 InitialValue;
-
-    [System.NonSerialized]
-    public Vector3 RuntimeValue;
+public class Vector3Variable : SharedVariable<Vector3> {
 
 
-    public void OnAfterDeserialize()
+    public override void OnAfterDeserialize()
     {
         RuntimeValue = new Vector3(InitialValue.x,InitialValue.y,InitialValue.z);
     }
-
-    public void OnBeforeSerialize() { /* do nothing */ }
 
     public override void OnLoadData(string data)
     {
@@ -28,9 +22,4 @@ public class Vector3Variable : SavableVariable, ISerializationCallbackReceiver {
     {
         return RuntimeValue.x.ToString()+","+RuntimeValue.y.ToString()+","+RuntimeValue.z.ToString();
     }
-    public override void OnClearSave()
-    {
-        OnAfterDeserialize();
-    }
-
 }
