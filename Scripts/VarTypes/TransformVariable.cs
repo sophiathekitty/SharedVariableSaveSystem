@@ -15,6 +15,16 @@ public class TransformVariable : SavableVariable {
     [System.NonSerialized]
     public Vector3 RuntimeScale;
 
+    public Transform RuntimeValue
+    {
+        set
+        {
+            RuntimePosition = new Vector3(value.position.x, value.position.y, value.position.z);
+            RuntimeRotation = new Vector3(value.localEulerAngles.x, value.localEulerAngles.y, value.localEulerAngles.z);
+            RuntimeScale = new Vector3(value.localScale.x, value.localScale.y, value.localScale.z);
+        }
+    }
+
 
     public void OnAfterDeserialize()
     {
@@ -47,4 +57,9 @@ public class TransformVariable : SavableVariable {
                 RuntimeRotation.x.ToString() + "," + RuntimeRotation.y.ToString() + "," + RuntimeRotation.z.ToString() + "|" +
                 RuntimeScale.x.ToString() + "," + RuntimeScale.y.ToString() + "," + RuntimeScale.z.ToString();
     }
+    public override void OnClearSave()
+    {
+        OnAfterDeserialize();
+    }
+
 }

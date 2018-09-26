@@ -66,6 +66,9 @@ public class SaveObject : ScriptableObject {
     }
     public void clearSaveData()
     {
+        // reset data
+        foreach (SavableVariable d in data)
+            d.OnClearSave();
         // remove saved data...
         if(File.Exists(savePath))
             File.Delete(savePath);

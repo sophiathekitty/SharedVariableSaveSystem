@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class SavableVariable : ScriptableObject {
+    public abstract void OnClearSave();
     public abstract string OnSaveData();
     public abstract void OnLoadData(string data);
     [System.NonSerialized]
