@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AutoSave : MonoBehaviour {
-    public SaveObject saveObject;
+    public SaveObject[] saveObjects;
     private void OnEnable()
     {
-        saveObject.LoadData();
+        foreach(SaveObject saveObject in saveObjects)
+            saveObject.LoadData();
     }
     private void OnDisable()
     {
-        saveObject.SaveData();
+        foreach (SaveObject saveObject in saveObjects)
+            saveObject.SaveData();
     }
 }

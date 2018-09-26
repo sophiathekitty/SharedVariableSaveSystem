@@ -19,7 +19,8 @@ public class StringVariable : SavableVariable, ISerializationCallbackReceiver
 
     public override void OnLoadData(string data)
     {
-        RuntimeValue = data;
+        if(data != "")
+            RuntimeValue = data;
         loaded = true;
     }
 
