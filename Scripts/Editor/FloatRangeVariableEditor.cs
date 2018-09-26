@@ -11,6 +11,27 @@ public class FloatRangeVariableEditor : Editor
         //base.OnInspectorGUI();
         FloatRangeVariable floatVariable = (FloatRangeVariable)target;
 
+        if(floatVariable.MaxValue < floatVariable.MinValue)
+        {
+            floatVariable.Descending = !floatVariable.Descending;
+            float max = floatVariable.MinValue;
+            floatVariable.MinValue = floatVariable.MaxValue;
+            floatVariable.MaxValue = max;
+            EditorUtility.SetDirty(target);
+        }
+
+        if(floatVariable.InitialValue > floatVariable.MaxValue)
+        {
+            floatVariable.InitialValue = floatVariable.MaxValue;
+            EditorUtility.SetDirty(target);
+        }
+
+        if (floatVariable.InitialValue < floatVariable.MinValue)
+        {
+            floatVariable.InitialValue = floatVariable.MinValue;
+            EditorUtility.SetDirty(target);
+        }
+
         floatVariable.Descending = EditorGUILayout.Toggle("Descending",floatVariable.Descending);
         if (floatVariable.Descending)
         {
@@ -24,7 +45,7 @@ public class FloatRangeVariableEditor : Editor
             floatVariable.MaxValue = EditorGUILayout.FloatField("Max Value", floatVariable.MaxValue);
             floatVariable.InitialValue = EditorGUILayout.Slider("Initial Value", floatVariable.InitialValue, floatVariable.MinValue, floatVariable.MaxValue);
         }
-
+        
 
 
         if (Application.isPlaying)
