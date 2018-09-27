@@ -8,46 +8,35 @@ public abstract class RangeVariable<T> : SharedVariable<T>
     public T MaxValue;
     public bool Descending;
 
+    public abstract float Percent { get; set; }
 
-    public override T RuntimeValue
+    public float GetPercent(float value, float min, float max)
     {
-        get
-        {
-            return base.RuntimeValue;
-        }
-        set
-        {
-            base.RuntimeValue = value;
-            FitToRange();
-        }
+        if (Descending)
+            return (1 - ((value - min) / (max - min)));
+        return ((value - min) / (max - min));
     }
 
-
-    public virtual float Percent
+    public float SetPercent(float percent, float min, float max)
     {
-        get
-        {
-            if (Descending)
-                return (1 - (((float)(object)base.RuntimeValue - (float)(object)MinValue) / ((float)(object)MaxValue - (float)(object)MinValue)));
-            return (((float)(object)base.RuntimeValue - (float)(object)MinValue) / ((float)(object)MaxValue - (float)(object)MinValue));
-        }
-        set
-        {
-            if (Descending)
-                base.RuntimeValue = (T)(object)Mathf.RoundToInt(Mathf.Lerp((float)(object)MaxValue, (float)(object)MinValue, (float)value));
-            else
-                base.RuntimeValue = (T)(object)Mathf.RoundToInt(Mathf.Lerp((float)(object)MinValue, (float)(object)MaxValue, (float)value));
-            FitToRange();
-        }
+        float value;
+        if (Descending)
+            value = Mathf.RoundToInt(Mathf.Lerp(max, min, percent));
+        else
+            value = Mathf.RoundToInt(Mathf.Lerp(min, max, percent));
+        return FitToRange(value,min,max);
+
     }
 
+    public abstract void FitToRange();
 
-    public virtual void FitToRange()
+    public float FitToRange(float value, float min, float max)
     {
-        if ((float)(object)base.RuntimeValue > (float)(object)MaxValue)
-            base.RuntimeValue = MaxValue;
-        if ((float)(object)base.RuntimeValue < (float)(object)MinValue)
-            base.RuntimeValue = MinValue;
+        if (value > max)
+            value = max;
+        if (value < min)
+            value = min;
+        return value;
     }
 
 }
