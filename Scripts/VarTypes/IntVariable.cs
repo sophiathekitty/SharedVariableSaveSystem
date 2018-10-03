@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Scriptable Ojbect for storing an int
+/// </summary>
 [CreateAssetMenu(menuName = "Variables/Int Variable")]
 public class IntVariable : SharedVariable<int>
 {

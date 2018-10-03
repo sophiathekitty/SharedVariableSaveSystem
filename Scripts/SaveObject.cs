@@ -3,11 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
-
+/// <summary>
+/// Holds a set of references to Savable Variables.
+/// </summary>
 [CreateAssetMenu(menuName = "Save Object")]
 public class SaveObject : ScriptableObject {
+    /// <summary>
+    /// The filename to be used for the save file
+    /// </summary>
     public string saveFileName = "save.dat";
+    /// <summary>
+    /// The path to the save file
+    /// </summary>
     public string saveFilePath = "";
+    /// <summary>
+    /// Combines the save path and filename
+    /// </summary>
     public string savePath
     {
         get
@@ -17,6 +28,9 @@ public class SaveObject : ScriptableObject {
             return saveFilePath + saveFileName;
         }
     }
+    /// <summary>
+    /// Whether or not a save file exists
+    /// </summary>
     public bool hasSave
     {
         get
@@ -24,9 +38,17 @@ public class SaveObject : ScriptableObject {
             return File.Exists(savePath);
         }
     }
+    /// <summary>
+    /// List of the savable variables to save
+    /// </summary>
     public List<SavableVariable> data;
+    /// <summary>
+    /// The data object to be serialized
+    /// </summary>
     private SaveDataObject _data;
-
+    /// <summary>
+    /// Saves the data
+    /// </summary>
     public void SaveData()
     {
         _data = new SaveDataObject();
@@ -47,6 +69,9 @@ public class SaveObject : ScriptableObject {
         file.Close();
 
     }
+    /// <summary>
+    /// Loads the data
+    /// </summary>
     public void LoadData()
     {
         if (File.Exists(savePath))
@@ -64,6 +89,9 @@ public class SaveObject : ScriptableObject {
             }
         }
     }
+    /// <summary>
+    /// Reset data
+    /// </summary>
     public void clearSaveData()
     {
         // reset data
@@ -74,10 +102,15 @@ public class SaveObject : ScriptableObject {
             File.Delete(savePath);
 
     }
-
+    /// <summary>
+    /// Data class for serializing data
+    /// </summary>
     [System.Serializable]
     private class SaveDataObject
     {
+        /// <summary>
+        /// Data to be serialized
+        /// </summary>
         public Dictionary<int, string> data = new Dictionary<int, string>();
     }
 }

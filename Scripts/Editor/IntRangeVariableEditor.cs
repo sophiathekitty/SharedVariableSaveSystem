@@ -15,14 +15,14 @@ public class IntRangeVariableEditor : Editor
         intVariable.Descending = EditorGUILayout.Toggle("Descending", intVariable.Descending);
         if (intVariable.Descending)
         {
-            intVariable.MaxValue = EditorGUILayout.IntField("Max Value", intVariable.MaxValue);
-            intVariable.MinValue = EditorGUILayout.IntField("Min Value", intVariable.MinValue);
+            intVariable.MaxValue = EditorGUILayout.IntField("Max Value", (int)intVariable.MaxValue);
+            intVariable.MinValue = EditorGUILayout.IntField("Min Value", (int)intVariable.MinValue);
             intVariable.InitialValue = (int)EditorGUILayout.Slider("Initial Value", intVariable.InitialValue, intVariable.MaxValue, intVariable.MinValue);
         }
         else
         {
-            intVariable.MinValue = EditorGUILayout.IntField("Min Value", intVariable.MinValue);
-            intVariable.MaxValue = EditorGUILayout.IntField("Max Value", intVariable.MaxValue);
+            intVariable.MinValue = EditorGUILayout.IntField("Min Value", (int)intVariable.MinValue);
+            intVariable.MaxValue = EditorGUILayout.IntField("Max Value", (int)intVariable.MaxValue);
             intVariable.InitialValue = (int)EditorGUILayout.Slider("Initial Value", intVariable.InitialValue, intVariable.MinValue, intVariable.MaxValue);
         }
 
