@@ -62,6 +62,6 @@ public class AttributeVariable : SharedVariable<float>
         RuntimeValue = float.Parse(datas[0]);
         RuntimeMax = float.Parse(datas[1]);
         RuntimeUnavailable = float.Parse(datas[2]);
-        loaded = true;
+        Loaded = true;
     }
 }

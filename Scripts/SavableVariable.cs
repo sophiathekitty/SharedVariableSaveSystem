@@ -25,5 +25,5 @@ public abstract class SavableVariable : ScriptableObject {
     /// Set to true if data has been loaded
     /// </summary>
     [System.NonSerialized]
-    public bool loaded = false;
+    public bool Loaded = false;
 }

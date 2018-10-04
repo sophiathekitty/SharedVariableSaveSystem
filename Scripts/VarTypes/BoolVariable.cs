@@ -10,6 +10,6 @@ public class BoolVariable : SharedVariable<bool>
     public override void OnLoadData(string data)
     {
         RuntimeValue = bool.Parse(data);
-        loaded = true;
+        Loaded = true;
     }
 }

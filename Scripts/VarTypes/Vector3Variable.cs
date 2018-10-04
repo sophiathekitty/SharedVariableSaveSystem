@@ -17,7 +17,7 @@ public class Vector3Variable : SharedVariable<Vector3> {
     {
         string[] values = data.Split(',');
         RuntimeValue = new Vector3(float.Parse(values[0]), float.Parse(values[1]), float.Parse(values[2]));
-        loaded = true;
+        Loaded = true;
     }
 
     public override string OnSaveData()

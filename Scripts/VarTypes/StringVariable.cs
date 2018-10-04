@@ -11,6 +11,6 @@ public class StringVariable : SharedVariable<string>
     {
         if(data != "")
             RuntimeValue = data;
-        loaded = true;
+        Loaded = true;
     }
 }

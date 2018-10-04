@@ -14,6 +14,6 @@ public class FloatVariable : SharedVariable<float>
     public override void OnLoadData(string data)
     {
         RuntimeValue = float.Parse(data);
-        loaded = true;
+        Loaded = true;
     }
 }

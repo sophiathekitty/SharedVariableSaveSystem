@@ -31,6 +31,6 @@ public class FloatRangeVariable : RangeVariable<float>
     public override void OnLoadData(string data)
     {
         RuntimeValue = float.Parse(data);
-        loaded = true;
+        Loaded = true;
     }
 }

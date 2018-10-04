@@ -10,6 +10,6 @@ public class IntVariable : SharedVariable<int>
     public override void OnLoadData(string data)
     {
         RuntimeValue = int.Parse(data);
-        loaded = true;
+        Loaded = true;
     }
 }
