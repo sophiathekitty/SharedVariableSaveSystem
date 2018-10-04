@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Variables/Transform Variable")]
-public class TransformVariable : SavableVariable {
+public class TransformVariable : SavableVariable, ISerializationCallbackReceiver {
     public Vector3 InitialPosition;
     public Vector3 InitialRotation;
     public Vector3 InitialScale;
