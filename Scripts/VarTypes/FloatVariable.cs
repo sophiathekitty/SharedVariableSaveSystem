@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// Scriptable Object for storing a float
 /// </summary>
-[CreateAssetMenu(menuName = "Variables/Float Variable")]
+[CreateAssetMenu(menuName = "Save System/Variables/Float Variable")]
 public class FloatVariable : SharedVariable<float>
 {
     /// <summary>

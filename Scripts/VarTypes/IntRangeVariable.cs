@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// Scriptable Object for storing an int range
 /// </summary>
-[CreateAssetMenu(menuName = "Variables/Int Range Variable")]
+[CreateAssetMenu(menuName = "Save System/Variables/Range/Int Range Variable")]
 public class IntRangeVariable : RangeVariable<int>
 {
     /// <summary>

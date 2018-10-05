@@ -6,7 +6,7 @@ using UnityEngine;
 /// Base abstract class for Scriptable Object variables. Extend this class to create new Savable Shared Variables.
 /// </summary>
 /// <typeparam name="T">Type of runtime value</typeparam>
-public abstract class SharedVariable<T> : SavableVariable, ISerializationCallbackReceiver
+public abstract class SharedVariable<T> : SavableVariable, ISerializationCallbackReceiver, ISaveVariable
 {
     /// <summary>
     /// The default value for the variable
@@ -16,6 +16,28 @@ public abstract class SharedVariable<T> : SavableVariable, ISerializationCallbac
     /// Runtime value for the variable
     /// </summary>
     public virtual T RuntimeValue { get; set; }
+
+    public string RuntimeString
+    {
+        get
+        {
+            if(RuntimeValue != null)
+                return RuntimeValue.ToString();
+            return "";
+        }
+    }
+    public string InitialString
+    {
+        get
+        {
+            if (InitialValue != null)
+                return InitialValue.ToString();
+            return "";
+        }
+    }
+
+
+
     /// <summary>
     /// Applies the default value to the runtime value after deserialization.
     /// </summary>
@@ -45,5 +67,12 @@ public abstract class SharedVariable<T> : SavableVariable, ISerializationCallbac
     public override void OnClearSave()
     {
         OnAfterDeserialize();
+    }
+
+    public override string ToString()
+    {
+        if (RuntimeValue != null && InitialValue != null)
+            return RuntimeValue.ToString() + "  [" + InitialValue.ToString() + "]";
+        return base.ToString();
     }
 }

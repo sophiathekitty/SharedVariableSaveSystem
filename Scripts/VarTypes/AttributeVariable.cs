@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Variables/Attribute Variable")]
+[CreateAssetMenu(menuName = "Save System/Variables/Attribute Variable")]
 public class AttributeVariable : SharedVariable<float>
 {
     //public float InitialValue;

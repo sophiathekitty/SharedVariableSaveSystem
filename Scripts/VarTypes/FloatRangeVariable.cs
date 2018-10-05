@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// Scriptable Object for storing a float range
 /// </summary>
-[CreateAssetMenu(menuName = "Variables/Float Range Variable")]
+[CreateAssetMenu(menuName = "Save System/Variables/Range/Float Range Variable")]
 public class FloatRangeVariable : RangeVariable<float>
 {
     /// <summary>

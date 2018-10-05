@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// Scriptable Object for storing Vector3
 /// </summary>
-[CreateAssetMenu(menuName = "Variables/Vector3 Variable")]
+[CreateAssetMenu(menuName = "Save System/Variables/Vector3 Variable")]
 public class Vector3Variable : SharedVariable<Vector3> {
 
 

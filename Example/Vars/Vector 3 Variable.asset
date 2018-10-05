@@ -3,14 +3,12 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4019127206c91d4cae1bc9c8d7cef76, type: 3}
-  m_Name: Float1
+  m_Script: {fileID: 11500000, guid: f2e8fa36c40575741a0c685fc66d341a, type: 3}
+  m_Name: Vector 3 Variable
   m_EditorClassIdentifier: 
-  InitialValue: 0
-  MinValue: 0
-  MaxValue: 1
+  InitialValue: {x: 0, y: 0, z: 0}

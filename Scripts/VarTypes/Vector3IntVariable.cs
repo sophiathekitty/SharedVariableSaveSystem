@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// Scriptable Object for storing a Vector3Int
 /// </summary>
-[CreateAssetMenu(menuName = "Variables/Vector3Int Variable")]
+[CreateAssetMenu(menuName = "Save System/Variables/Vector3Int Variable")]
 public class Vector3IntVariable : SharedVariable<Vector3Int>
 {
     public override void OnLoadData(string data)

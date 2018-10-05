@@ -31,7 +31,7 @@ namespace SharedVariableSaveSystemTests
 
             saveObject.LoadData();
             Assert.AreEqual(testData, testIntData.RuntimeValue);
-            saveObject.clearSaveData();
+            saveObject.ClearSaveData();
 
             FileAssert.DoesNotExist(saveObject.savePath);
         }

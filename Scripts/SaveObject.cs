@@ -6,7 +6,7 @@ using System.IO;
 /// <summary>
 /// Holds a set of references to Savable Variables.
 /// </summary>
-[CreateAssetMenu(menuName = "Save Object")]
+[CreateAssetMenu(menuName = "Save System/Save Object")]
 public class SaveObject : ScriptableObject {
     /// <summary>
     /// The filename to be used for the save file
@@ -38,6 +38,10 @@ public class SaveObject : ScriptableObject {
             return File.Exists(savePath);
         }
     }
+    /// <summary>
+    /// Different places to save.
+    /// </summary>
+    public List<SaveMethod> SaveLocations;
     /// <summary>
     /// List of the savable variables to save
     /// </summary>
@@ -92,15 +96,14 @@ public class SaveObject : ScriptableObject {
     /// <summary>
     /// Reset data
     /// </summary>
-    public void clearSaveData()
+    public void ClearSaveData()
     {
         // reset data
         foreach (SavableVariable d in data)
             d.OnClearSave();
         // remove saved data...
-        if(File.Exists(savePath))
-            File.Delete(savePath);
-
+        foreach (SaveMethod m in SaveLocations)
+            m.ClearData();
     }
     /// <summary>
     /// Data class for serializing data
