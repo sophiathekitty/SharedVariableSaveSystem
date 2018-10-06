@@ -6,7 +6,7 @@ using UnityEngine;
 /// Base abstract class for Scriptable Object variables. Extend this class to create new Savable Shared Variables.
 /// </summary>
 /// <typeparam name="T">Type of runtime value</typeparam>
-public abstract class SharedVariable<T> : SavableVariable, ISerializationCallbackReceiver, ISaveVariable
+public abstract class SharedVariable<T> : SavableVariable, ISerializationCallbackReceiver, ISaveVariable, IListItemDrawer
 {
     /// <summary>
     /// The default value for the variable
@@ -74,5 +74,16 @@ public abstract class SharedVariable<T> : SavableVariable, ISerializationCallbac
         if (RuntimeValue != null && InitialValue != null)
             return RuntimeValue.ToString() + "  [" + InitialValue.ToString() + "]";
         return base.ToString();
+    }
+
+    public virtual void OnDrawElement(Rect rect, float line_height)
+    {
+        GUI.Label(new Rect(rect.position, new Vector2(rect.width, line_height)), name);
+        GUI.Label(new Rect(new Vector2(rect.position.x, rect.position.y + line_height), new Vector2(rect.width, line_height)), ToString());
+    }
+
+    public virtual float GetElementHeight(float line_height)
+    {
+        return (line_height + 2) * 2;
     }
 }

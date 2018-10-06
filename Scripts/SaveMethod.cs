@@ -24,16 +24,16 @@ public abstract class SaveMethod : ScriptableObject, ISaveMethod, IListItemDrawe
     /// <summary>
     /// Loads the data
     /// </summary>
-    public abstract Dictionary<int, string> LoadData();
+    public abstract Dictionary<int, string> LoadData(Dictionary<int, string> data);
     /// <summary>
     /// Clears the data
     /// </summary>
-    public abstract void ClearData();
+    public abstract void ClearData(Dictionary<int, string> data);
 
     public virtual void OnDrawElement(Rect rect, float line_height)
     {
         GUI.Label(new Rect(rect.position, new Vector2(rect.width, line_height-2)), 
-            SaveName);
+            SaveName );
         SaveFilePath = EditorGUI.TextField(
             new Rect(new Vector2(rect.position.x, rect.position.y + line_height), new Vector2(rect.width, line_height-2)),
             "Path",

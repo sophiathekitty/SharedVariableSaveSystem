@@ -12,9 +12,9 @@ public interface ISaveMethod {
     /// <summary>
     /// Loads the data
     /// </summary>
-    Dictionary<int, string> LoadData();
+    Dictionary<int, string> LoadData(Dictionary<int, string> data);
     /// <summary>
     /// Clears the data
     /// </summary>
-    void ClearData();
+    void ClearData(Dictionary<int, string> data);
 }

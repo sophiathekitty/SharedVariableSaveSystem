@@ -3,31 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using System;
 /// <summary>
 /// Holds a set of references to Savable Variables.
 /// </summary>
 [CreateAssetMenu(menuName = "Save System/Save Object")]
+[HelpURL("https://github.com/sophiathekitty/SharedVariableSaveSystem/wiki/SaveObject")]
 public class SaveObject : ScriptableObject {
-    /// <summary>
-    /// The filename to be used for the save file
-    /// </summary>
-    public string saveFileName = "save.dat";
-    /// <summary>
-    /// The path to the save file
-    /// </summary>
-    public string saveFilePath = "";
-    /// <summary>
-    /// Combines the save path and filename
-    /// </summary>
-    public string savePath
-    {
-        get
-        {
-            if (saveFilePath == "")
-                return Application.persistentDataPath + saveFileName;
-            return saveFilePath + saveFileName;
-        }
-    }
     /// <summary>
     /// Whether or not a save file exists
     /// </summary>
@@ -35,7 +17,10 @@ public class SaveObject : ScriptableObject {
     {
         get
         {
-            return File.Exists(savePath);
+            foreach (SaveMethod m in SaveLocations)
+                if (m.HasSave)
+                    return true;
+            return false;
         }
     }
     /// <summary>
@@ -45,53 +30,54 @@ public class SaveObject : ScriptableObject {
     /// <summary>
     /// List of the savable variables to save
     /// </summary>
-    public List<SavableVariable> data;
+    public List<SavableVariable> Data;
     /// <summary>
     /// The data object to be serialized
     /// </summary>
-    private SaveDataObject _data;
+    private Dictionary<int,string> _data
+    {
+        get
+        {
+            Dictionary<int, string> _d = new Dictionary<int, string>();
+            foreach (SavableVariable d in Data)
+            {
+                if (_d.ContainsKey(d.GetInstanceID()))
+                    _d[d.GetInstanceID()] = d.OnSaveData();
+                else
+                    _d.Add(d.GetInstanceID(), d.OnSaveData());
+            }
+            return _d;
+        }
+    }
     /// <summary>
     /// Saves the data
     /// </summary>
     public void SaveData()
     {
-        _data = new SaveDataObject();
-
-        // run through the data and store it in _data;
-        foreach(SavableVariable d in data)
-        {
-            if (_data.data.ContainsKey(d.GetInstanceID()))
-                _data.data[d.GetInstanceID()] = d.OnSaveData();
-            else
-                _data.data.Add(d.GetInstanceID(), d.OnSaveData());
-        }
-
-        // save the data to a binary file
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Open(savePath, FileMode.OpenOrCreate);
-        bf.Serialize(file, _data);
-        file.Close();
-
+        foreach(SaveMethod m in SaveLocations)
+            if(m != null)
+                m.SaveData(_data);
     }
     /// <summary>
     /// Loads the data
     /// </summary>
     public void LoadData()
     {
-        if (File.Exists(savePath))
+        Dictionary<int, string> _da = new Dictionary<int, string>();
+        DateTime lastSave = new DateTime(0, 0, 0);
+        foreach (SaveMethod _m in SaveLocations)
         {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.OpenRead(savePath);
-            _data = (SaveDataObject)bf.Deserialize(file);
-            file.Close();
-
-            // go through data and load values from _data if they exist.
-            foreach (SavableVariable d in data)
+            if(_m != null && _m.LastSave >= lastSave)
+                _da = _m.LoadData(_data);
+        }
+        foreach (SavableVariable d in Data)
+        {
+            if (_da.ContainsKey(d.GetInstanceID()))
             {
-                if (_data.data.ContainsKey(d.GetInstanceID()))
-                    d.OnLoadData(_data.data[d.GetInstanceID()]);
+                d.OnLoadData(_da[d.GetInstanceID()]);
             }
         }
+
     }
     /// <summary>
     /// Reset data
@@ -99,11 +85,12 @@ public class SaveObject : ScriptableObject {
     public void ClearSaveData()
     {
         // reset data
-        foreach (SavableVariable d in data)
+        foreach (SavableVariable d in Data)
             d.OnClearSave();
         // remove saved data...
         foreach (SaveMethod m in SaveLocations)
-            m.ClearData();
+            if(m != null)
+                m.ClearData(_data);
     }
     /// <summary>
     /// Data class for serializing data

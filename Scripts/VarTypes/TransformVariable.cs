@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Save System/Variables/Transform Variable")]
-public class TransformVariable : SavableVariable, ISerializationCallbackReceiver {
+[HelpURL("https://github.com/sophiathekitty/SharedVariableSaveSystem/wiki/TransformVariable")]
+public class TransformVariable : SavableVariable, ISerializationCallbackReceiver, IListItemDrawer {
     public Vector3 InitialPosition;
     public Vector3 InitialRotation;
     public Vector3 InitialScale;
@@ -62,4 +64,16 @@ public class TransformVariable : SavableVariable, ISerializationCallbackReceiver
         OnAfterDeserialize();
     }
 
+    public void OnDrawElement(Rect rect, float line_height)
+    {
+        GUI.Label(new Rect(rect.x, rect.y, rect.width / 2, line_height - 2), name);
+        InitialPosition = EditorGUI.Vector3Field(new Rect(rect.x, rect.y + line_height, rect.width, line_height - 2), "Position", InitialPosition);
+        InitialRotation = EditorGUI.Vector3Field(new Rect(rect.x, rect.y + ((line_height + 8) * 2), rect.width, line_height - 2), "Rotation", InitialRotation);
+        InitialScale = EditorGUI.Vector3Field(new Rect(rect.x, rect.y + ((line_height + 10) * 3), rect.width, line_height - 2), "Scale", InitialScale);
+    }
+
+    public float GetElementHeight(float line_height)
+    {
+        return (line_height+14) * 4;
+    }
 }

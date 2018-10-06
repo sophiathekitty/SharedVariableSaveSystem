@@ -34,14 +34,23 @@ public class SavePlayerPrefs : SaveMethod
 
     public override string SaveName { get { return SavePath+name; } }
 
-    public override void ClearData()
+    public override void ClearData(Dictionary<int, string> data)
     {
-        PlayerPrefs.DeleteAll();
+        //PlayerPrefs.DeleteAll();
+        PlayerPrefs.DeleteKey(SavePath + "LastSave");
+        foreach (KeyValuePair<int, string> valuePair in data)
+        {
+            PlayerPrefs.DeleteKey(SavePath + valuePair.Key.ToString());
+        }
     }
 
-    public override Dictionary<int, string> LoadData()
+    public override Dictionary<int, string> LoadData(Dictionary<int, string> data)
     {
-        throw new NotImplementedException();
+        foreach (KeyValuePair<int, string> valuePair in data)
+        {
+            data[valuePair.Key] = PlayerPrefs.GetString(SavePath + valuePair.Key.ToString());
+        }
+        return data;
     }
 
     public override void SaveData(Dictionary<int, string> data)

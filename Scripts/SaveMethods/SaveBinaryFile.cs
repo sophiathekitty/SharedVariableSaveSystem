@@ -52,9 +52,9 @@ public class SaveBinaryFile : SaveMethod
         }
     }
 
-    public override Dictionary<int, string> LoadData()
+    public override Dictionary<int, string> LoadData(Dictionary<int, string> data)
     {
-        Dictionary<int, string> data = new Dictionary<int, string>();
+        //Dictionary<int, string> data = new Dictionary<int, string>();
         if (File.Exists(SavePath))
         {
             BinaryFormatter bf = new BinaryFormatter();
@@ -74,7 +74,7 @@ public class SaveBinaryFile : SaveMethod
         file.Close();
     }
 
-    public override void ClearData()
+    public override void ClearData(Dictionary<int, string> data)
     {
         // remove saved data...
         if (File.Exists(SavePath))

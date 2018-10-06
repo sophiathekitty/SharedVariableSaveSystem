@@ -9,7 +9,6 @@ using UnityEditorInternal;
 [CanEditMultipleObjects]
 public class SaveObjectEditor : Editor {
 
-    private bool showLocations,showVariables;
     private ReorderableList saveLocationList, variablesList;
 
     internal const float k_DefaultElementHeight = 48f;
@@ -40,7 +39,7 @@ public class SaveObjectEditor : Editor {
         saveLocationList.onReorderCallback = ListUpdated; ;
         saveLocationList.onAddCallback = OnAddElementLocation;
 
-        variablesList = new ReorderableList(saveObject.data, typeof(List<SavableVariable>), true, true, true, true);
+        variablesList = new ReorderableList(saveObject.Data, typeof(List<SavableVariable>), true, true, true, true);
         variablesList.drawHeaderCallback = OnDrawHeaderVariables;
         variablesList.drawElementCallback = OnDrawElementVariables;
         variablesList.elementHeightCallback = GetElementHeightVariables;
@@ -52,19 +51,23 @@ public class SaveObjectEditor : Editor {
     private void OnDrawHeaderLocation(Rect rect)
     {
         GUI.Label(rect, "Save Locations");
+        if (GUI.Button(new Rect(rect.x + rect.width - 70, rect.y, 70, rect.height), "Find"))
+            FindSaveLocationButton();
     }
 
     private void OnDrawElementLocation(Rect rect, int index, bool isactive, bool isfocused)
     {
         SaveMethod saveMethod = saveObject.SaveLocations[index];
-        IListItemDrawer itemDrawer = (IListItemDrawer)saveMethod;
+        IListItemDrawer itemDrawer = (IListItemDrawer)saveObject.SaveLocations[index];
 
         EditorGUI.BeginChangeCheck();
 
-        if(itemDrawer != null)
-            itemDrawer.OnDrawElement(rect,line_height);
-        else
+        if (itemDrawer != null)
+            itemDrawer.OnDrawElement(rect, line_height);
+        else if (saveMethod != null)
             GUI.Label(new Rect(rect.position, new Vector2(rect.width - 40, 16)), saveMethod.SaveName);
+        else
+            saveObject.SaveLocations[index] = (SaveMethod)EditorGUI.ObjectField(rect, saveMethod, typeof(SaveMethod), false);
 
         if (EditorGUI.EndChangeCheck())
         {
@@ -82,7 +85,7 @@ public class SaveObjectEditor : Editor {
 
     private void OnAddElementLocation(ReorderableList list)
     {
-        // create a new save method
+        saveObject.SaveLocations.Add(null);
     }
 
     private void ListUpdated(ReorderableList list)
@@ -101,18 +104,25 @@ public class SaveObjectEditor : Editor {
     #region VariablesList
     private void OnDrawHeaderVariables(Rect rect)
     {
-        GUI.Label(rect, "Persistant Variables");
+        GUI.Label(rect, "Data");
+        if (GUI.Button(new Rect(rect.x + rect.width - 70, rect.y, 70, rect.height), "Find"))
+            FindVariablesButton();
     }
 
     private void OnDrawElementVariables(Rect rect, int index, bool isactive, bool isfocused)
     {
-        SavableVariable saveVar = saveObject.data[index];
-
+        SavableVariable saveVar = saveObject.Data[index];
+        IListItemDrawer itemDrawer = (IListItemDrawer)saveObject.Data[index];
         EditorGUI.BeginChangeCheck();
 
-        GUI.Label(new Rect(rect.position, new Vector2(rect.width - select_width, line_height)), saveVar.name);
-        saveVar = (SavableVariable)EditorGUI.ObjectField(new Rect(new Vector2(rect.position.x + rect.width - select_width, rect.position.y), new Vector2(select_width, line_height)),saveVar,typeof(SavableVariable),false);
-        GUI.Label(new Rect(new Vector2(rect.position.x, rect.position.y + line_height), new Vector2(rect.width, line_height)), "Value: " + saveVar.ToString());
+        if (itemDrawer != null)
+            itemDrawer.OnDrawElement(rect, line_height);
+        else
+        {
+            saveVar = (SavableVariable)EditorGUI.ObjectField(new Rect(rect.position, new Vector2(rect.width, line_height)), saveVar, typeof(SavableVariable), false);
+            if (saveVar != null)
+                GUI.Label(new Rect(new Vector2(rect.position.x, rect.position.y + line_height), new Vector2(rect.width, line_height)), saveVar.ToString());
+        }
 
 
         if (EditorGUI.EndChangeCheck())
@@ -120,17 +130,23 @@ public class SaveObjectEditor : Editor {
             EditorUtility.SetDirty(saveVar);
             SaveTile();
         }
-            
+        
     }
 
     private float GetElementHeightVariables(int index)
     {
-        return line_height*2;
+        IListItemDrawer itemDrawer = (IListItemDrawer)saveObject.Data[index];
+        if (itemDrawer != null)
+            return itemDrawer.GetElementHeight(line_height);
+        if (saveObject.Data[index] == null)
+            return line_height + 2;
+        return (line_height+2)*2;
     }
 
     private void OnAddElementVariables(ReorderableList list)
     {
         // create a new save method
+        saveObject.Data.Add(null);
     }
 
 
@@ -142,93 +158,57 @@ public class SaveObjectEditor : Editor {
         SceneView.RepaintAll();
     }
 
-
+    /// <summary>
+    /// Draw the custom inspector
+    /// </summary>
     public override void OnInspectorGUI()
     {
         //base.OnInspectorGUI();
 
-
-
-        GUILayout.BeginHorizontal();
-        GUILayout.Label("Save Locations");
-        FindSaveLocationButton();
-        showLocations = ShowHideGroup(showLocations);
-        GUILayout.EndHorizontal();
-
-        if (showLocations)
-        {
-            if(saveLocationList != null && saveObject.SaveLocations != null)
-                saveLocationList.DoLayoutList();
-        }
-        
-        GUILayout.BeginHorizontal();
-        GUILayout.Label("Variables");
-        FindVariablesButton();
-        showVariables = ShowHideGroup(showVariables);
-        GUILayout.EndHorizontal();
-
-        if (showVariables)
-        {
-            if (variablesList != null && saveObject.data != null)
-                variablesList.DoLayoutList();
-        }
-
-
         ClearDataButton();
-    }
+        GUILayout.Space(10);
 
-    private bool ShowHideGroup(bool v)
-    {
-        
-        if (v)
-        {
-            if (GUILayout.Button("-"))
-                v = false;
-        }
-        else
-        {
-            if (GUILayout.Button("+"))
-                v = true;
-        }
-        return v;
+
+        saveLocationList.DoLayoutList();
+        GUILayout.Space(10);
+        variablesList.DoLayoutList();
+
+
+
+
+
+
+
     }
 
     private void FindSaveLocationButton()
     {
-        if (GUILayout.Button("Find Save Locations"))
+        string[] ass = AssetDatabase.FindAssets("t:SaveMethod");
+        foreach (string a in ass)
         {
-            string[] ass = AssetDatabase.FindAssets("t:SaveMethod");
-            foreach (string a in ass)
+            if (AssetDatabase.GUIDToAssetPath(a).Contains("/" + saveObject.name + "/"))
             {
-                if (AssetDatabase.GUIDToAssetPath(a).Contains("/" + saveObject.name + "/"))
-                {
-                    SaveMethod sv = (SaveMethod)AssetDatabase.LoadAssetAtPath(AssetDatabase.GUIDToAssetPath(a), typeof(SaveMethod));
-                    if (!saveObject.SaveLocations.Contains(sv))
-                        saveObject.SaveLocations.Add(sv);
-                }
+                SaveMethod sv = (SaveMethod)AssetDatabase.LoadAssetAtPath(AssetDatabase.GUIDToAssetPath(a), typeof(SaveMethod));
+                if (!saveObject.SaveLocations.Contains(sv))
+                    saveObject.SaveLocations.Add(sv);
             }
-            showLocations = true;
-            EditorUtility.SetDirty(saveObject);
         }
+        EditorUtility.SetDirty(saveObject);
     }
 
     private void FindVariablesButton()
     {
-        if (GUILayout.Button("Find Variables"))
+        string[] ass = AssetDatabase.FindAssets("t:SavableVariable");
+        foreach (string a in ass)
         {
-            string[] ass = AssetDatabase.FindAssets("t:SavableVariable");
-            foreach (string a in ass)
+            if (AssetDatabase.GUIDToAssetPath(a).Contains("/" + saveObject.name + "/"))
             {
-                if (AssetDatabase.GUIDToAssetPath(a).Contains("/" + saveObject.name + "/"))
-                {
-                    SavableVariable sv = (SavableVariable)AssetDatabase.LoadAssetAtPath(AssetDatabase.GUIDToAssetPath(a), typeof(SavableVariable));
-                    if (!saveObject.data.Contains(sv))
-                        saveObject.data.Add(sv);
-                }
+                SavableVariable sv = (SavableVariable)AssetDatabase.LoadAssetAtPath(AssetDatabase.GUIDToAssetPath(a), typeof(SavableVariable));
+                if (!saveObject.Data.Contains(sv))
+                    saveObject.Data.Add(sv);
             }
-            showVariables = true;
-            EditorUtility.SetDirty(saveObject);
         }
+        EditorUtility.SetDirty(saveObject);
     }
 
     private void ClearDataButton()
