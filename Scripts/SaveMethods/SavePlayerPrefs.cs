@@ -12,7 +12,7 @@ public class SavePlayerPrefs : SaveMethod
         {
             if (PlayerPrefs.HasKey(SavePath + "LastSave"))
                 return DateTime.Parse(PlayerPrefs.GetString(SavePath + "LastSave"));
-            return new DateTime(0, 0, 0);
+            return new DateTime(1900,1,1);
         }
     }
 
@@ -46,11 +46,12 @@ public class SavePlayerPrefs : SaveMethod
 
     public override Dictionary<int, string> LoadData(Dictionary<int, string> data)
     {
+        Dictionary<int, string> loaded = new Dictionary<int, string>();
         foreach (KeyValuePair<int, string> valuePair in data)
         {
-            data[valuePair.Key] = PlayerPrefs.GetString(SavePath + valuePair.Key.ToString());
+            loaded[valuePair.Key] = PlayerPrefs.GetString(SavePath + valuePair.Key.ToString());
         }
-        return data;
+        return loaded;
     }
 
     public override void SaveData(Dictionary<int, string> data)

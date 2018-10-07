@@ -64,7 +64,7 @@ public class SaveObject : ScriptableObject {
     public void LoadData()
     {
         Dictionary<int, string> _da = new Dictionary<int, string>();
-        DateTime lastSave = new DateTime(0, 0, 0);
+        DateTime lastSave = new DateTime(1900, 1, 1);
         foreach (SaveMethod _m in SaveLocations)
         {
             if(_m != null && _m.LastSave >= lastSave)

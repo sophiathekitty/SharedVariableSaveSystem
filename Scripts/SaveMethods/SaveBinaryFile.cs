@@ -39,7 +39,7 @@ public class SaveBinaryFile : SaveMethod
         {
             if (HasSave)
                 return File.GetLastAccessTime(SavePath);
-            return new DateTime(0,0,0);
+            return new DateTime(1900,1,1);
         }
 
     }
