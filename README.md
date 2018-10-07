@@ -1,6 +1,6 @@
 # Shared Variable Save System
 Some scriptable objects for sharing data between game elements and a system for saving the runtime values of those shared variables.
-Based on this tutorial: https://unity3d.com/how-to/architect-with-Scriptable-Objects and now updated to use generics based on this: https://fishtrone.wordpress.com/2018/09/16/saving-scriptable-object-variables/
+Based on this tutorial: *[architect with scriptable objects](https://unity3d.com/how-to/architect-with-Scriptable-Objects)* and now updated to use generics based on this: *[saving scriptable object variables](https://fishtrone.wordpress.com/2018/09/16/saving-scriptable-object-variables/)*
 
 
 # How to use
