@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// interface for a save variable
+/// </summary>
 public interface ISaveVariable  {
     /// <summary>
     /// Converts runtime value into a string for SaveObject

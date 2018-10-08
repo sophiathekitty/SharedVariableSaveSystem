@@ -35,6 +35,12 @@ public class IntRangeVariable : RangeVariable<int>
         Loaded = true;
     }
 
+    /// <summary>
+    /// draws the custom inspector for an element
+    /// </summary>
+    /// <param name="rect">size of element</param>
+    /// <param name="line_height">height of a line</param>
+    /// <see cref="IListItemDrawer"/>
     public override void OnDrawElement(Rect rect, float line_height)
     {
         //base.OnDrawElement(rect, line_height);
@@ -58,6 +64,11 @@ public class IntRangeVariable : RangeVariable<int>
         EditorGUI.ProgressBar(new Rect(rect.x, rect.y + (line_height * 2), rect.width, line_height + 2), Percent, ToString());
         //GUI.Label(new Rect(rect.x, rect.y + line_height, rect.width, line_height - 2), "Runtime: " + RuntimeValue.ToString() + " | Default: " + InitialValue.ToString());
     }
+    /// <summary>
+    /// calculates height of element
+    /// </summary>
+    /// <param name="line_height">used to calculate height</param>
+    /// <returns>height of element</returns>
     public override float GetElementHeight(float line_height)
     {
         return line_height * 3 + 5;

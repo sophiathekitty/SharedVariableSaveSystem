@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// interface for the basics of save methods.
+/// </summary>
 public interface ISaveMethod {
     string SaveName { get; }
     bool HasSave { get;  }

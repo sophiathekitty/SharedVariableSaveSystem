@@ -13,7 +13,6 @@ namespace SharedVariableSaveSystem.Tests.VarTypes
         float iMax = 3;
         float rMax = 4;
         float iUn = 0;
-        float rUn = 0;
 
         [UnityTest]
         public override IEnumerator _00_Setup()

@@ -2,15 +2,26 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-
+/// <summary>
+/// a game attribute. like player health. includes an unavailable value to dynamically reduce the max value. max value can also be changed. like getting more health after leveling up
+/// </summary>
 [CreateAssetMenu(menuName = "Save System/Variables/Attribute Variable")]
 [HelpURL("https://github.com/sophiathekitty/SharedVariableSaveSystem/wiki/AttributeVariable")]
 public class AttributeVariable : SharedVariable<float>
 {
-    //public float InitialValue;
+    /// <summary>
+    /// the initial max value
+    /// </summary>
     public float InitialMax;
+
+    /// <summary>
+    /// the initial unavailable value
+    /// </summary>
     public float InitialUnavailable;
 
+    /// <summary>
+    /// the calculated runtime value. runtime value kept within 0 and max minus unavilable.
+    /// </summary>
     public override float RuntimeValue
     {
         get
@@ -37,11 +48,19 @@ public class AttributeVariable : SharedVariable<float>
         }
 
     }
+    /// <summary>
+    /// the runtime max. this can be changed and saved
+    /// </summary>
     [System.NonSerialized]
     public float RuntimeMax;
+    /// <summary>
+    /// the runtime unavailable. this can be changed and saved
+    /// </summary>
     [System.NonSerialized]
     public float RuntimeUnavailable;
-
+    /// <summary>
+    /// the percent of the value from max
+    /// </summary>
     public float Percent
     {
         get
@@ -52,12 +71,18 @@ public class AttributeVariable : SharedVariable<float>
         }
     }
 
-    
+    /// <summary>
+    /// returns a string of the runtime data
+    /// </summary>
+    /// <returns>serialized runtime data</returns>
     public override string OnSaveData()
     {
         return RuntimeValue.ToString()+","+RuntimeMax.ToString()+","+RuntimeUnavailable.ToString();
     }
-
+    /// <summary>
+    /// deserializes string into runtime data
+    /// </summary>
+    /// <param name="data">serialized runtime data</param>
     public override void OnLoadData(string data)
     {
         string[] datas = data.Split(',');
@@ -66,7 +91,9 @@ public class AttributeVariable : SharedVariable<float>
         RuntimeUnavailable = float.Parse(datas[2]);
         Loaded = true;
     }
-
+    /// <summary>
+    /// applies the initial data to runtime data
+    /// </summary>
     public override void OnAfterDeserialize()
     {
         base.OnAfterDeserialize();
@@ -74,10 +101,17 @@ public class AttributeVariable : SharedVariable<float>
         RuntimeUnavailable = InitialUnavailable;
 
     }
-
+    /// <summary>
+    /// style for displaying the value bar
+    /// </summary>
     private GUIStyle valueStyle = null;
+    /// <summary>
+    /// style for displaying the unavialble bar
+    /// </summary>
     private GUIStyle unavailableStyle = null;
-
+    /// <summary>
+    /// initialize the styles
+    /// </summary>
     private void InitStyles()
     {
         if (valueStyle == null)
@@ -91,6 +125,13 @@ public class AttributeVariable : SharedVariable<float>
             unavailableStyle.normal.background = MakeTex(2, 2, new Color(1f, 0f, 0f, 1f));
         }
     }
+    /// <summary>
+    /// makes a background text for the bars
+    /// </summary>
+    /// <param name="width">width</param>
+    /// <param name="height">height</param>
+    /// <param name="col">color</param>
+    /// <returns>background color image</returns>
     private Texture2D MakeTex(int width, int height, Color col)
     {
         Color[] pix = new Color[width * height];
@@ -103,7 +144,12 @@ public class AttributeVariable : SharedVariable<float>
         result.Apply();
         return result;
     }
-
+    /// <summary>
+    /// draws the custom inspector for an attribute element
+    /// </summary>
+    /// <param name="rect">size of element</param>
+    /// <param name="line_height">height of a line</param>
+    /// <see cref="IListItemDrawer"/>
     public override void OnDrawElement(Rect rect, float line_height)
     {
         InitStyles();
@@ -119,11 +165,12 @@ public class AttributeVariable : SharedVariable<float>
         float w = (r.width - 2) * InitialUnavailable / InitialMax;
         GUI.Box(new Rect(r.x + r.width - w, r.y + 1, w, r.height - 2), InitialUnavailable.ToString(), unavailableStyle);
         GUILayout.Space(26);
-
-
-        //EditorGUI.ProgressBar(new Rect(rect.x, rect.y + (line_height * 2), rect.width, line_height + 2), Percent, ToString());
-        //GUI.Label(new Rect(rect.x, rect.y + line_height, rect.width, line_height - 2), "Runtime: " + RuntimeValue.ToString() + " | Default: " + InitialValue.ToString());
     }
+    /// <summary>
+    /// the height of the element
+    /// </summary>
+    /// <param name="line_height">used to calculate height</param>
+    /// <returns>height of the element</returns>
     public override float GetElementHeight(float line_height)
     {
         return line_height * 3 + 10;

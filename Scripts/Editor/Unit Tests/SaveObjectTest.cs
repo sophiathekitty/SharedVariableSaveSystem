@@ -45,7 +45,7 @@ namespace SharedVariableSaveSystem.Tests
 
             yield return null;
 
-            Assert.IsTrue(saveObject.hasSave);
+            Assert.IsTrue(saveObject.HasSave);
             // blank out the data to simulate that it's been unloaded
             testIntData.OnAfterDeserialize();
             Assert.AreEqual(testIntData.RuntimeValue, testIntData.InitialValue);
@@ -70,7 +70,7 @@ namespace SharedVariableSaveSystem.Tests
 
             yield return null;
 
-            Assert.False(saveObject.hasSave);
+            Assert.False(saveObject.HasSave);
         }
     }
 

@@ -50,6 +50,5 @@ namespace SharedVariableSaveSystem.Tests.VarTypes
             Assert.AreEqual(transform.localEulerAngles, transformVariable.RuntimeRotation, "Rotation was wrong");
             Assert.AreEqual(transform.localScale, transformVariable.RuntimeScale, "Scale was wrong");
         }
-
     }
 }
