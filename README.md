@@ -10,6 +10,6 @@ Based on this tutorial: *[architect with scriptable objects](https://unity3d.com
 * Add *Variables* to *SaveObject's* Data list. (click search for variables to find all variables under /[SaveObjectName]/ folder.)
 * Write classes use *Variables* to store and share data. 
 
-## [Documentation](https://github.com/sophiathekitty/SharedVariableSaveSystem/wiki)
+## [Documentation](https://sophiathekitty.github.io/SharedVariableSaveSystem/html/index.html)
 ## Tutorials
 * Coming soon
