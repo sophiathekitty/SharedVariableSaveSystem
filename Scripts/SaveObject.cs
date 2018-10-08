@@ -54,6 +54,7 @@ public class SaveObject : ScriptableObject {
     /// </summary>
     public void SaveData()
     {
+        Debug.Log("SaveObject::SaveData()");
         foreach(SaveMethod m in SaveLocations)
             if(m != null)
                 m.SaveData(_data);
@@ -63,6 +64,7 @@ public class SaveObject : ScriptableObject {
     /// </summary>
     public void LoadData()
     {
+        Debug.Log("SaveObject::LoadData()");
         Dictionary<int, string> _da = new Dictionary<int, string>();
         DateTime lastSave = new DateTime(1900, 1, 1);
         foreach (SaveMethod _m in SaveLocations)
@@ -77,7 +79,6 @@ public class SaveObject : ScriptableObject {
                 d.OnLoadData(_da[d.GetInstanceID()]);
             }
         }
-
     }
     /// <summary>
     /// Reset data

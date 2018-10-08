@@ -11,4 +11,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f6e745ff2d38ca4bac44100c1ca985c, type: 3}
   m_Name: String Variable
   m_EditorClassIdentifier: 
-  InitialValue: 
+  InitialValue: hello

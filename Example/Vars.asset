@@ -11,9 +11,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33c865c0784cdf247b2096e4129c1830, type: 3}
   m_Name: Vars
   m_EditorClassIdentifier: 
-  saveFileName: save.dat
-  saveFilePath: 
   SaveLocations:
   - {fileID: 11400000, guid: 5c3fa027b7e40e8498cde5ba2e0dcc81, type: 2}
-  data:
+  - {fileID: 11400000, guid: e110d1ba11c71f349b4b46636c1d7a59, type: 2}
+  Data:
+  - {fileID: 11400000, guid: 2e379a18f809a7d49b108354b8231a94, type: 2}
   - {fileID: 11400000, guid: 6e863dbc16a6f994694363ca8022a1b7, type: 2}
+  - {fileID: 11400000, guid: a97431df352638447b948b9b56f299f8, type: 2}
+  - {fileID: 11400000, guid: 03dfb5ee643283b4d8b750e097a218c3, type: 2}
+  - {fileID: 11400000, guid: ae20c19444fe68f4297c28efdf1cfbe3, type: 2}
+  - {fileID: 11400000, guid: d76d430fc10e9634d8f3a83b3ea67b22, type: 2}
+  - {fileID: 11400000, guid: 1d511a985c4350e43b5051ea0d5ac1f8, type: 2}
+  - {fileID: 11400000, guid: 858c4399f1290e94792e163741008e92, type: 2}
+  - {fileID: 11400000, guid: 0cc390f372dab514c85d18dda5184a6c, type: 2}

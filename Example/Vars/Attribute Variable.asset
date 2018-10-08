@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dfd5b24237b50c4a9212e5c6dde1e52, type: 3}
   m_Name: Attribute Variable
   m_EditorClassIdentifier: 
-  InitialValue: 0
-  InitialMax: 0
-  InitialUnavailable: 0
+  InitialValue: 25
+  InitialMax: 50
+  InitialUnavailable: 10

@@ -61,7 +61,10 @@ public class SaveBinaryFile : SaveMethod
             FileStream file = File.OpenRead(SavePath);
             data = (Dictionary<int, string>)bf.Deserialize(file);
             file.Close();
+            Debug.Log("SaveBinaryFile::LoadData() ==> Binary Data Loaded");
         }
+        else
+            Debug.LogError("SaveBinaryFile::LoadData() ==> File Missing?!");
         return data;
     }
 
@@ -72,6 +75,10 @@ public class SaveBinaryFile : SaveMethod
         FileStream file = File.Open(SavePath, FileMode.OpenOrCreate);
         bf.Serialize(file, data);
         file.Close();
+        if (File.Exists(SavePath))
+            Debug.Log("SaveBinaryFile::SaveData() ==> Binary Data Saved");
+        else
+            Debug.LogError("SaveBinaryFile::SaveData() ==> Binary Data NOT Saved!?!");
     }
 
     public override void ClearData(Dictionary<int, string> data)
