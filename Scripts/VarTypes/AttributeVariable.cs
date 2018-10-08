@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using SharedVariableSaveSystem;
 /// <summary>
 /// a game attribute. like player health. includes an unavailable value to dynamically reduce the max value. max value can also be changed. like getting more health after leveling up
 /// </summary>
@@ -13,7 +14,6 @@ public class AttributeVariable : SharedVariable<float>
     /// the initial max value
     /// </summary>
     public float InitialMax;
-
     /// <summary>
     /// the initial unavailable value
     /// </summary>
@@ -91,6 +91,7 @@ public class AttributeVariable : SharedVariable<float>
         RuntimeUnavailable = float.Parse(datas[2]);
         Loaded = true;
     }
+
     /// <summary>
     /// applies the initial data to runtime data
     /// </summary>
@@ -101,6 +102,8 @@ public class AttributeVariable : SharedVariable<float>
         RuntimeUnavailable = InitialUnavailable;
 
     }
+
+    #region bar styles
     /// <summary>
     /// style for displaying the value bar
     /// </summary>
@@ -144,6 +147,8 @@ public class AttributeVariable : SharedVariable<float>
         result.Apply();
         return result;
     }
+    #endregion
+
     /// <summary>
     /// draws the custom inspector for an attribute element
     /// </summary>
@@ -175,5 +180,4 @@ public class AttributeVariable : SharedVariable<float>
     {
         return line_height * 3 + 10;
     }
-
 }

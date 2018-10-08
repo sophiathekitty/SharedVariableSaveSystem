@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using SharedVariableSaveSystem;
+
 /// <summary>
 /// Scriptable Object for storing an int range
 /// </summary>
@@ -25,6 +27,7 @@ public class IntRangeVariable : RangeVariable<int>
             RuntimeValue = (int)value;
         }
     }
+
     /// <summary>
     /// Loads data into runtime value
     /// </summary>

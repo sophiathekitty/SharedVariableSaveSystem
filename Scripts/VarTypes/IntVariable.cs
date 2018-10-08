@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using SharedVariableSaveSystem;
 /// <summary>
 /// Scriptable Ojbect for storing an int
 /// </summary>
@@ -18,6 +19,7 @@ public class IntVariable : SharedVariable<int>
         RuntimeValue = int.Parse(data);
         Loaded = true;
     }
+
     /// <summary>
     /// draws the custom inspector for an element
     /// </summary>
@@ -30,5 +32,4 @@ public class IntVariable : SharedVariable<int>
         InitialValue = EditorGUI.IntField(new Rect(rect.position, new Vector2(rect.width, line_height - 2)), name, InitialValue);
         GUI.Label(new Rect(rect.x, rect.y + line_height, rect.width, line_height - 2), "Runtime: " + RuntimeValue.ToString() + " | Default: " + InitialValue.ToString());
     }
-
 }

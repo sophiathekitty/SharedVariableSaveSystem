@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using SharedVariableSaveSystem;
+
 /// <summary>
 /// Scriptable Object for storing Vector3
 /// </summary>
@@ -35,6 +37,7 @@ public class Vector3Variable : SharedVariable<Vector3>
     {
         return RuntimeValue.x.ToString()+","+RuntimeValue.y.ToString()+","+RuntimeValue.z.ToString();
     }
+
     /// <summary>
     /// draws the custom inspector for an element
     /// </summary>

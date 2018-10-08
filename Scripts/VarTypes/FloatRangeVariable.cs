@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using SharedVariableSaveSystem;
+
 /// <summary>
 /// Scriptable Object for storing a float range
 /// </summary>
@@ -26,6 +28,7 @@ public class FloatRangeVariable : RangeVariable<float>
             RuntimeValue = value;
         }
     }
+
     /// <summary>
     /// Loads Runtime value
     /// </summary>
@@ -35,6 +38,7 @@ public class FloatRangeVariable : RangeVariable<float>
         RuntimeValue = float.Parse(data);
         Loaded = true;
     }
+
     /// <summary>
     /// draws the custom inspector for an element
     /// </summary>

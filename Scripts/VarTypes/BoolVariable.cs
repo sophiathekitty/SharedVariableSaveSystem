@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using SharedVariableSaveSystem;
 /// <summary>
 /// Scriptable Object for storing a bool
 /// </summary>

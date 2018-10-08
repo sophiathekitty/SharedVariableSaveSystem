@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using SharedVariableSaveSystem;
+
 /// <summary>
 /// holds position, rotation, and scale
 /// </summary>
@@ -20,6 +22,7 @@ public class TransformVariable : SavableVariable, ISerializationCallbackReceiver
     /// initial local scale
     /// </summary>
     public Vector3 InitialScale;
+
     /// <summary>
     /// runtime postion
     /// </summary>

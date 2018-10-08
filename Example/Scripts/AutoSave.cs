@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SharedVariableSaveSystem;
 
 public class AutoSave : MonoBehaviour {
     public SaveObject[] saveObjects;

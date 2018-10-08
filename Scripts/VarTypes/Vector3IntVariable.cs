@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using SharedVariableSaveSystem;
+
 /// <summary>
 /// Scriptable Object for storing a Vector3Int
 /// </summary>
@@ -19,11 +21,15 @@ public class Vector3IntVariable : SharedVariable<Vector3Int>
         RuntimeValue = new Vector3Int(int.Parse(values[0]), int.Parse(values[1]), int.Parse(values[2]));
         Loaded = true;
     }
-
+    /// <summary>
+    /// serializes runtime data into a string
+    /// </summary>
+    /// <returns>serialized string of runtime data</returns>
     public override string OnSaveData()
     {
         return RuntimeValue.x.ToString() + "," + RuntimeValue.y.ToString() + "," + RuntimeValue.z.ToString();
     }
+
     /// <summary>
     /// draws the custom inspector for an element
     /// </summary>
@@ -35,5 +41,4 @@ public class Vector3IntVariable : SharedVariable<Vector3Int>
         //base.OnDrawElement(rect, line_height);
         InitialValue = EditorGUI.Vector3IntField(new Rect(rect.position, new Vector2(rect.width, line_height)), name, InitialValue);
     }
-
 }
