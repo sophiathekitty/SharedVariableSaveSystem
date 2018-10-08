@@ -1,0 +1,67 @@
+.TH "FloatVariable" 3 "Mon Oct 8 2018" "Shared Variable Save System" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+FloatVariable \- Scriptable Object for storing a float  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSharedVariableSaveSystem\&.SharedVariable< float >\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "override void \fBOnLoadData\fP (string data)"
+.br
+.RI "Parses string to float "
+.ti -1c
+.RI "override void \fBOnDrawElement\fP (Rect rect, float line_height)"
+.br
+.RI "draws the custom inspector for an element "
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Scriptable Object for storing a float 
+
+
+.PP
+Definition at line 11 of file FloatVariable\&.cs\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "override void FloatVariable\&.OnDrawElement (Rect rect, float line_height)\fC [virtual]\fP"
+
+.PP
+draws the custom inspector for an element 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrect\fP size of element
+.br
+\fIline_height\fP height of a line
+.RE
+.PP
+IListItemDrawer 
+.PP
+Reimplemented from \fBSharedVariableSaveSystem\&.SharedVariable< float >\fP\&.
+.PP
+Definition at line 28 of file FloatVariable\&.cs\&.
+.SS "override void FloatVariable\&.OnLoadData (string data)"
+
+.PP
+Parses string to float 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdata\fP String data to be loaded
+.RE
+.PP
+
+.PP
+Definition at line 17 of file FloatVariable\&.cs\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Shared Variable Save System from the source code\&.

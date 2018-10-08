@@ -1,0 +1,137 @@
+.TH "SharedVariableSaveSystem.SavePlayerPrefs" 3 "Mon Oct 8 2018" "Shared Variable Save System" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SharedVariableSaveSystem.SavePlayerPrefs \- Saves data using PlayerPrefs  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSharedVariableSaveSystem\&.SaveMethod\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "override void \fBClearData\fP (Dictionary< int, string > data)"
+.br
+.RI "clears the save data "
+.ti -1c
+.RI "override Dictionary< int, string > \fBLoadData\fP (Dictionary< int, string > data)"
+.br
+.RI "loads data "
+.ti -1c
+.RI "override void \fBSaveData\fP (Dictionary< int, string > data)"
+.br
+.RI "save data to player prefs "
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "override DateTime \fBLastSave\fP\fC [get]\fP"
+.br
+.RI "last time the data was saved "
+.ti -1c
+.RI "override bool \fBHasSave\fP\fC [get]\fP"
+.br
+.RI "does save data exist "
+.ti -1c
+.RI "override string \fBSavePath\fP\fC [get]\fP"
+.br
+.RI "prefex for player pref vars "
+.ti -1c
+.RI "override string \fBSaveName\fP\fC [get]\fP"
+.br
+.RI "display save name "
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Saves data using PlayerPrefs 
+
+
+.PP
+Definition at line 11 of file SavePlayerPrefs\&.cs\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "override void SharedVariableSaveSystem\&.SavePlayerPrefs\&.ClearData (Dictionary< int, string > data)\fC [virtual]\fP"
+
+.PP
+clears the save data 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdata\fP data structure to clear
+.RE
+.PP
+
+.PP
+Implements \fBSharedVariableSaveSystem\&.SaveMethod\fP\&.
+.PP
+Definition at line 60 of file SavePlayerPrefs\&.cs\&.
+.SS "override Dictionary<int, string> SharedVariableSaveSystem\&.SavePlayerPrefs\&.LoadData (Dictionary< int, string > data)\fC [virtual]\fP"
+
+.PP
+loads data 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdata\fP data structure to load
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+loaded data
+.RE
+.PP
+
+.PP
+Implements \fBSharedVariableSaveSystem\&.SaveMethod\fP\&.
+.PP
+Definition at line 75 of file SavePlayerPrefs\&.cs\&.
+.SS "override void SharedVariableSaveSystem\&.SavePlayerPrefs\&.SaveData (Dictionary< int, string > data)\fC [virtual]\fP"
+
+.PP
+save data to player prefs 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdata\fP data to save
+.RE
+.PP
+
+.PP
+Implements \fBSharedVariableSaveSystem\&.SaveMethod\fP\&.
+.PP
+Definition at line 89 of file SavePlayerPrefs\&.cs\&.
+.SH "Property Documentation"
+.PP 
+.SS "override bool SharedVariableSaveSystem\&.SavePlayerPrefs\&.HasSave\fC [get]\fP"
+
+.PP
+does save data exist \fBSaveMethod\fP 
+.PP
+Definition at line 32 of file SavePlayerPrefs\&.cs\&.
+.SS "override DateTime SharedVariableSaveSystem\&.SavePlayerPrefs\&.LastSave\fC [get]\fP"
+
+.PP
+last time the data was saved \fBSaveMethod\fP 
+.PP
+Definition at line 18 of file SavePlayerPrefs\&.cs\&.
+.SS "override string SharedVariableSaveSystem\&.SavePlayerPrefs\&.SaveName\fC [get]\fP"
+
+.PP
+display save name \fBSaveMethod\fP 
+.PP
+Definition at line 54 of file SavePlayerPrefs\&.cs\&.
+.SS "override string SharedVariableSaveSystem\&.SavePlayerPrefs\&.SavePath\fC [get]\fP"
+
+.PP
+prefex for player pref vars 
+.PP
+Definition at line 43 of file SavePlayerPrefs\&.cs\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Shared Variable Save System from the source code\&.

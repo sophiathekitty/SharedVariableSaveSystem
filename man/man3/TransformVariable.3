@@ -1,0 +1,225 @@
+.TH "TransformVariable" 3 "Mon Oct 8 2018" "Shared Variable Save System" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+TransformVariable \- holds position, rotation, and scale  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSharedVariableSaveSystem\&.SavableVariable\fP, ISerializationCallbackReceiver, and \fBSharedVariableSaveSystem\&.IListItemDrawer\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBOnAfterDeserialize\fP ()"
+.br
+.RI "apply initial values to runtime "
+.ti -1c
+.RI "void \fBOnBeforeSerialize\fP ()"
+.br
+.RI "does nothing "
+.ti -1c
+.RI "override void \fBOnLoadData\fP (string data)"
+.br
+.RI "deserializes string into runtime data "
+.ti -1c
+.RI "override string \fBOnSaveData\fP ()"
+.br
+.RI "produces a serialized string of the runtime data "
+.ti -1c
+.RI "override void \fBOnClearSave\fP ()"
+.br
+.RI "resets the runtime data to initial data "
+.ti -1c
+.RI "void \fBOnDrawElement\fP (Rect rect, float line_height)"
+.br
+.RI "draws the custom inspector for an element "
+.ti -1c
+.RI "float \fBGetElementHeight\fP (float line_height)"
+.br
+.RI "returns the height of the element "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "Vector3 \fBInitialPosition\fP"
+.br
+.RI "initial position "
+.ti -1c
+.RI "Vector3 \fBInitialRotation\fP"
+.br
+.RI "initial rotation "
+.ti -1c
+.RI "Vector3 \fBInitialScale\fP"
+.br
+.RI "initial local scale "
+.ti -1c
+.RI "Vector3 \fBRuntimePosition\fP"
+.br
+.RI "runtime postion "
+.ti -1c
+.RI "Vector3 \fBRuntimeRotation\fP"
+.br
+.RI "runtime rotation "
+.ti -1c
+.RI "Vector3 \fBRuntimeScale\fP"
+.br
+.RI "runtime scale "
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "Transform \fBRuntimeValue\fP\fC [set]\fP"
+.br
+.RI "setter for runtime values that uses transform reference "
+.in -1c
+.SH "Detailed Description"
+.PP 
+holds position, rotation, and scale 
+
+
+.PP
+Definition at line 12 of file TransformVariable\&.cs\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "float TransformVariable\&.GetElementHeight (float line_height)"
+
+.PP
+returns the height of the element 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIline_height\fP line height
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+height of element
+.RE
+.PP
+
+.PP
+Implements \fBSharedVariableSaveSystem\&.IListItemDrawer\fP\&.
+.PP
+Definition at line 125 of file TransformVariable\&.cs\&.
+.SS "void TransformVariable\&.OnAfterDeserialize ()"
+
+.PP
+apply initial values to runtime ISerializationCallbackReceiver 
+.PP
+Definition at line 58 of file TransformVariable\&.cs\&.
+.SS "void TransformVariable\&.OnBeforeSerialize ()"
+
+.PP
+does nothing ISerializationCallbackReceiver 
+.PP
+Definition at line 68 of file TransformVariable\&.cs\&.
+.SS "override void TransformVariable\&.OnClearSave ()\fC [virtual]\fP"
+
+.PP
+resets the runtime data to initial data 
+.PP
+Implements \fBSharedVariableSaveSystem\&.SavableVariable\fP\&.
+.PP
+Definition at line 102 of file TransformVariable\&.cs\&.
+.SS "void TransformVariable\&.OnDrawElement (Rect rect, float line_height)"
+
+.PP
+draws the custom inspector for an element 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrect\fP size of element
+.br
+\fIline_height\fP height of a line
+.RE
+.PP
+IListItemDrawer 
+.PP
+Implements \fBSharedVariableSaveSystem\&.IListItemDrawer\fP\&.
+.PP
+Definition at line 113 of file TransformVariable\&.cs\&.
+.SS "override void TransformVariable\&.OnLoadData (string data)\fC [virtual]\fP"
+
+.PP
+deserializes string into runtime data 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdata\fP serialized runtime data
+.RE
+.PP
+
+.PP
+Implements \fBSharedVariableSaveSystem\&.SavableVariable\fP\&.
+.PP
+Definition at line 74 of file TransformVariable\&.cs\&.
+.SS "override string TransformVariable\&.OnSaveData ()\fC [virtual]\fP"
+
+.PP
+produces a serialized string of the runtime data 
+.PP
+\fBReturns:\fP
+.RS 4
+serialized runtime data string
+.RE
+.PP
+
+.PP
+Implements \fBSharedVariableSaveSystem\&.SavableVariable\fP\&.
+.PP
+Definition at line 93 of file TransformVariable\&.cs\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "Vector3 TransformVariable\&.InitialPosition"
+
+.PP
+initial position 
+.PP
+Definition at line 16 of file TransformVariable\&.cs\&.
+.SS "Vector3 TransformVariable\&.InitialRotation"
+
+.PP
+initial rotation 
+.PP
+Definition at line 20 of file TransformVariable\&.cs\&.
+.SS "Vector3 TransformVariable\&.InitialScale"
+
+.PP
+initial local scale 
+.PP
+Definition at line 24 of file TransformVariable\&.cs\&.
+.SS "Vector3 TransformVariable\&.RuntimePosition"
+
+.PP
+runtime postion 
+.PP
+Definition at line 30 of file TransformVariable\&.cs\&.
+.SS "Vector3 TransformVariable\&.RuntimeRotation"
+
+.PP
+runtime rotation 
+.PP
+Definition at line 35 of file TransformVariable\&.cs\&.
+.SS "Vector3 TransformVariable\&.RuntimeScale"
+
+.PP
+runtime scale 
+.PP
+Definition at line 40 of file TransformVariable\&.cs\&.
+.SH "Property Documentation"
+.PP 
+.SS "Transform TransformVariable\&.RuntimeValue\fC [set]\fP"
+
+.PP
+setter for runtime values that uses transform reference 
+.PP
+Definition at line 45 of file TransformVariable\&.cs\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Shared Variable Save System from the source code\&.

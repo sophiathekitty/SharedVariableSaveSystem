@@ -1,0 +1,4 @@
+var searchData=
+[
+  ['loaddata',['LoadData',['../interface_shared_variable_save_system_1_1_i_save_method.html#a1caf9c45c5c0576ecf77e48006259691',1,'SharedVariableSaveSystem.ISaveMethod.LoadData()'],['../class_shared_variable_save_system_1_1_save_method.html#a1acbd219f9ce8b9cb4c218b8cb5ad0f9',1,'SharedVariableSaveSystem.SaveMethod.LoadData()'],['../class_shared_variable_save_system_1_1_save_binary_file.html#ae1e8fedc1fc13a7975ecc0566a703cc0',1,'SharedVariableSaveSystem.SaveBinaryFile.LoadData()'],['../class_shared_variable_save_system_1_1_save_player_prefs.html#a42c32330a6b2c2acdf9b87701269b75e',1,'SharedVariableSaveSystem.SavePlayerPrefs.LoadData()'],['../class_shared_variable_save_system_1_1_save_object.html#aac57d92ce68b48cefd9977b5e97e781d',1,'SharedVariableSaveSystem.SaveObject.LoadData()']]]
+];

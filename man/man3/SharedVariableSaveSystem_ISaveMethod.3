@@ -1,0 +1,68 @@
+.TH "SharedVariableSaveSystem.ISaveMethod" 3 "Mon Oct 8 2018" "Shared Variable Save System" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SharedVariableSaveSystem.ISaveMethod \- interface for the basics of save methods\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBSharedVariableSaveSystem\&.SaveMethod\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBSaveData\fP (Dictionary< int, string > data)"
+.br
+.RI "Saves the data "
+.ti -1c
+.RI "Dictionary< int, string > \fBLoadData\fP (Dictionary< int, string > data)"
+.br
+.RI "Loads the data "
+.ti -1c
+.RI "void \fBClearData\fP (Dictionary< int, string > data)"
+.br
+.RI "Clears the data "
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "string \fBSaveName\fP\fC [get]\fP"
+.br
+.ti -1c
+.RI "bool \fBHasSave\fP\fC [get]\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+interface for the basics of save methods\&. 
+
+
+.PP
+Definition at line 9 of file ISaveMethod\&.cs\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void SharedVariableSaveSystem\&.ISaveMethod\&.ClearData (Dictionary< int, string > data)"
+
+.PP
+Clears the data 
+.PP
+Implemented in \fBSharedVariableSaveSystem\&.SaveBinaryFile\fP, \fBSharedVariableSaveSystem\&.SavePlayerPrefs\fP, and \fBSharedVariableSaveSystem\&.SaveMethod\fP\&.
+.SS "Dictionary<int, string> SharedVariableSaveSystem\&.ISaveMethod\&.LoadData (Dictionary< int, string > data)"
+
+.PP
+Loads the data 
+.PP
+Implemented in \fBSharedVariableSaveSystem\&.SaveBinaryFile\fP, \fBSharedVariableSaveSystem\&.SavePlayerPrefs\fP, and \fBSharedVariableSaveSystem\&.SaveMethod\fP\&.
+.SS "void SharedVariableSaveSystem\&.ISaveMethod\&.SaveData (Dictionary< int, string > data)"
+
+.PP
+Saves the data 
+.PP
+Implemented in \fBSharedVariableSaveSystem\&.SaveBinaryFile\fP, \fBSharedVariableSaveSystem\&.SavePlayerPrefs\fP, and \fBSharedVariableSaveSystem\&.SaveMethod\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Shared Variable Save System from the source code\&.

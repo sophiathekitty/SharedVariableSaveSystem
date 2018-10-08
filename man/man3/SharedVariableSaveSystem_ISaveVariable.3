@@ -1,0 +1,102 @@
+.TH "SharedVariableSaveSystem.ISaveVariable" 3 "Mon Oct 8 2018" "Shared Variable Save System" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SharedVariableSaveSystem.ISaveVariable \- interface for a save variable  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBSharedVariableSaveSystem\&.SharedVariable< T >\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "string \fBOnSaveData\fP ()"
+.br
+.RI "Converts runtime value into a string for \fBSaveObject\fP "
+.ti -1c
+.RI "void \fBOnClearSave\fP ()"
+.br
+.RI "Resets Runtime value to Initial value "
+.ti -1c
+.RI "void \fBOnLoadData\fP (string data)"
+.br
+.RI "Parses string of data into runtime data "
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "string \fBRuntimeString\fP\fC [get]\fP"
+.br
+.RI "display string for runtime value "
+.ti -1c
+.RI "string \fBInitialString\fP\fC [get]\fP"
+.br
+.RI "display string for initial value "
+.in -1c
+.SH "Detailed Description"
+.PP 
+interface for a save variable 
+
+
+.PP
+Definition at line 9 of file ISaveVariable\&.cs\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void SharedVariableSaveSystem\&.ISaveVariable\&.OnClearSave ()"
+
+.PP
+Resets Runtime value to Initial value Calls OnAfterDeserialize
+.PP
+Implemented in \fBSharedVariableSaveSystem\&.SharedVariable< T >\fP\&.
+.SS "void SharedVariableSaveSystem\&.ISaveVariable\&.OnLoadData (string data)"
+
+.PP
+Parses string of data into runtime data 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdata\fP Data to be loaded
+.RE
+.PP
+
+.SS "string SharedVariableSaveSystem\&.ISaveVariable\&.OnSaveData ()"
+
+.PP
+Converts runtime value into a string for \fBSaveObject\fP 
+.PP
+\fBReturns:\fP
+.RS 4
+String of runtime value
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBSaveObject\fP
+.PP
+.RE
+.PP
+
+.PP
+Implemented in \fBSharedVariableSaveSystem\&.SharedVariable< T >\fP\&.
+.SH "Property Documentation"
+.PP 
+.SS "string SharedVariableSaveSystem\&.ISaveVariable\&.InitialString\fC [get]\fP"
+
+.PP
+display string for initial value 
+.PP
+Definition at line 34 of file ISaveVariable\&.cs\&.
+.SS "string SharedVariableSaveSystem\&.ISaveVariable\&.RuntimeString\fC [get]\fP"
+
+.PP
+display string for runtime value 
+.PP
+Definition at line 30 of file ISaveVariable\&.cs\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Shared Variable Save System from the source code\&.

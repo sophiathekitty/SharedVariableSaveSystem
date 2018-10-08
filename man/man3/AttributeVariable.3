@@ -1,0 +1,191 @@
+.TH "AttributeVariable" 3 "Mon Oct 8 2018" "Shared Variable Save System" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AttributeVariable \- a game attribute\&. like player health\&. includes an unavailable value to dynamically reduce the max value\&. max value can also be changed\&. like getting more health after leveling up  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSharedVariableSaveSystem\&.SharedVariable< float >\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "override string \fBOnSaveData\fP ()"
+.br
+.RI "returns a string of the runtime data "
+.ti -1c
+.RI "override void \fBOnLoadData\fP (string data)"
+.br
+.RI "deserializes string into runtime data "
+.ti -1c
+.RI "override void \fBOnAfterDeserialize\fP ()"
+.br
+.RI "applies the initial data to runtime data "
+.ti -1c
+.RI "override void \fBOnDrawElement\fP (Rect rect, float line_height)"
+.br
+.RI "draws the custom inspector for an attribute element "
+.ti -1c
+.RI "override float \fBGetElementHeight\fP (float line_height)"
+.br
+.RI "the height of the element "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "float \fBInitialMax\fP"
+.br
+.RI "the initial max value "
+.ti -1c
+.RI "float \fBInitialUnavailable\fP"
+.br
+.RI "the initial unavailable value "
+.ti -1c
+.RI "float \fBRuntimeMax\fP"
+.br
+.RI "the runtime max\&. this can be changed and saved "
+.ti -1c
+.RI "float \fBRuntimeUnavailable\fP"
+.br
+.RI "the runtime unavailable\&. this can be changed and saved "
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "override float \fBRuntimeValue\fP\fC [get, set]\fP"
+.br
+.RI "the calculated runtime value\&. runtime value kept within 0 and max minus unavilable\&. "
+.ti -1c
+.RI "float \fBPercent\fP\fC [get]\fP"
+.br
+.RI "the percent of the value from max "
+.in -1c
+.SH "Detailed Description"
+.PP 
+a game attribute\&. like player health\&. includes an unavailable value to dynamically reduce the max value\&. max value can also be changed\&. like getting more health after leveling up 
+
+
+.PP
+Definition at line 11 of file AttributeVariable\&.cs\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "override float AttributeVariable\&.GetElementHeight (float line_height)\fC [virtual]\fP"
+
+.PP
+the height of the element 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIline_height\fP used to calculate height
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+height of the element
+.RE
+.PP
+
+.PP
+Reimplemented from \fBSharedVariableSaveSystem\&.SharedVariable< float >\fP\&.
+.PP
+Definition at line 179 of file AttributeVariable\&.cs\&.
+.SS "override void AttributeVariable\&.OnAfterDeserialize ()\fC [virtual]\fP"
+
+.PP
+applies the initial data to runtime data 
+.PP
+Reimplemented from \fBSharedVariableSaveSystem\&.SharedVariable< float >\fP\&.
+.PP
+Definition at line 98 of file AttributeVariable\&.cs\&.
+.SS "override void AttributeVariable\&.OnDrawElement (Rect rect, float line_height)\fC [virtual]\fP"
+
+.PP
+draws the custom inspector for an attribute element 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrect\fP size of element
+.br
+\fIline_height\fP height of a line
+.RE
+.PP
+IListItemDrawer 
+.PP
+Reimplemented from \fBSharedVariableSaveSystem\&.SharedVariable< float >\fP\&.
+.PP
+Definition at line 158 of file AttributeVariable\&.cs\&.
+.SS "override void AttributeVariable\&.OnLoadData (string data)"
+
+.PP
+deserializes string into runtime data 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdata\fP serialized runtime data
+.RE
+.PP
+
+.PP
+Definition at line 86 of file AttributeVariable\&.cs\&.
+.SS "override string AttributeVariable\&.OnSaveData ()"
+
+.PP
+returns a string of the runtime data 
+.PP
+\fBReturns:\fP
+.RS 4
+serialized runtime data
+.RE
+.PP
+
+.PP
+Definition at line 78 of file AttributeVariable\&.cs\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "float AttributeVariable\&.InitialMax"
+
+.PP
+the initial max value 
+.PP
+Definition at line 16 of file AttributeVariable\&.cs\&.
+.SS "float AttributeVariable\&.InitialUnavailable"
+
+.PP
+the initial unavailable value 
+.PP
+Definition at line 20 of file AttributeVariable\&.cs\&.
+.SS "float AttributeVariable\&.RuntimeMax"
+
+.PP
+the runtime max\&. this can be changed and saved 
+.PP
+Definition at line 55 of file AttributeVariable\&.cs\&.
+.SS "float AttributeVariable\&.RuntimeUnavailable"
+
+.PP
+the runtime unavailable\&. this can be changed and saved 
+.PP
+Definition at line 60 of file AttributeVariable\&.cs\&.
+.SH "Property Documentation"
+.PP 
+.SS "float AttributeVariable\&.Percent\fC [get]\fP"
+
+.PP
+the percent of the value from max 
+.PP
+Definition at line 65 of file AttributeVariable\&.cs\&.
+.SS "override float AttributeVariable\&.RuntimeValue\fC [get]\fP, \fC [set]\fP"
+
+.PP
+the calculated runtime value\&. runtime value kept within 0 and max minus unavilable\&. 
+.PP
+Definition at line 26 of file AttributeVariable\&.cs\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Shared Variable Save System from the source code\&.

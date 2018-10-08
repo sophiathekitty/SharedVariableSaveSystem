@@ -1,0 +1,185 @@
+.TH "SharedVariableSaveSystem.SaveMethod" 3 "Mon Oct 8 2018" "Shared Variable Save System" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SharedVariableSaveSystem.SaveMethod \- base class for save methods  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits ScriptableObject, \fBSharedVariableSaveSystem\&.ISaveMethod\fP, and \fBSharedVariableSaveSystem\&.IListItemDrawer\fP\&.
+.PP
+Inherited by \fBSharedVariableSaveSystem\&.SaveBinaryFile\fP, and \fBSharedVariableSaveSystem\&.SavePlayerPrefs\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "abstract void \fBSaveData\fP (Dictionary< int, string > data)"
+.br
+.RI "Saves the data "
+.ti -1c
+.RI "abstract Dictionary< int, string > \fBLoadData\fP (Dictionary< int, string > data)"
+.br
+.RI "Loads the data "
+.ti -1c
+.RI "abstract void \fBClearData\fP (Dictionary< int, string > data)"
+.br
+.RI "Clears the data "
+.ti -1c
+.RI "virtual void \fBOnDrawElement\fP (Rect rect, float line_height)"
+.br
+.RI "draws the custom inspector view for the \fBSaveObject\fP list inspector\&. "
+.ti -1c
+.RI "virtual float \fBGetElementHeight\fP (float line_height)"
+.br
+.RI "the height of the list item view "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "string \fBSaveFilePath\fP = ''"
+.br
+.RI "The path to the save file "
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "abstract DateTime \fBLastSave\fP\fC [get]\fP"
+.br
+.RI "the date and time that the save data was last written\&. "
+.ti -1c
+.RI "abstract bool \fBHasSave\fP\fC [get]\fP"
+.br
+.RI "returns true if there is save data available "
+.ti -1c
+.RI "abstract string \fBSavePath\fP\fC [get]\fP"
+.br
+.RI "the parsed path to access the save data (file path or url) "
+.ti -1c
+.RI "abstract string \fBSaveName\fP\fC [get]\fP"
+.br
+.RI "the filename of the save file "
+.in -1c
+.SH "Detailed Description"
+.PP 
+base class for save methods 
+
+
+.PP
+\fBSee also:\fP
+.RS 4
+\fBISaveMethod\fP, \fBIListItemDrawer\fP
+.PP
+.RE
+.PP
+
+.PP
+Definition at line 13 of file SaveMethod\&.cs\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "abstract void SharedVariableSaveSystem\&.SaveMethod\&.ClearData (Dictionary< int, string > data)\fC [pure virtual]\fP"
+
+.PP
+Clears the data 
+.PP
+Implements \fBSharedVariableSaveSystem\&.ISaveMethod\fP\&.
+.PP
+Implemented in \fBSharedVariableSaveSystem\&.SaveBinaryFile\fP, and \fBSharedVariableSaveSystem\&.SavePlayerPrefs\fP\&.
+.SS "virtual float SharedVariableSaveSystem\&.SaveMethod\&.GetElementHeight (float line_height)\fC [virtual]\fP"
+
+.PP
+the height of the list item view 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIline_height\fP the height of a line
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the height of the list item view
+.RE
+.PP
+\fBIListItemDrawer\fP 
+.PP
+Implements \fBSharedVariableSaveSystem\&.IListItemDrawer\fP\&.
+.PP
+Reimplemented in \fBSharedVariableSaveSystem\&.SaveBinaryFile\fP\&.
+.PP
+Definition at line 67 of file SaveMethod\&.cs\&.
+.SS "abstract Dictionary<int, string> SharedVariableSaveSystem\&.SaveMethod\&.LoadData (Dictionary< int, string > data)\fC [pure virtual]\fP"
+
+.PP
+Loads the data 
+.PP
+Implements \fBSharedVariableSaveSystem\&.ISaveMethod\fP\&.
+.PP
+Implemented in \fBSharedVariableSaveSystem\&.SaveBinaryFile\fP, and \fBSharedVariableSaveSystem\&.SavePlayerPrefs\fP\&.
+.SS "virtual void SharedVariableSaveSystem\&.SaveMethod\&.OnDrawElement (Rect rect, float line_height)\fC [virtual]\fP"
+
+.PP
+draws the custom inspector view for the \fBSaveObject\fP list inspector\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrect\fP the view area of the properter drawer
+.br
+\fIline_height\fP the height of a line
+.RE
+.PP
+\fBIListItemDrawer\fP 
+.PP
+Implements \fBSharedVariableSaveSystem\&.IListItemDrawer\fP\&.
+.PP
+Reimplemented in \fBSharedVariableSaveSystem\&.SaveBinaryFile\fP\&.
+.PP
+Definition at line 52 of file SaveMethod\&.cs\&.
+.SS "abstract void SharedVariableSaveSystem\&.SaveMethod\&.SaveData (Dictionary< int, string > data)\fC [pure virtual]\fP"
+
+.PP
+Saves the data 
+.PP
+Implements \fBSharedVariableSaveSystem\&.ISaveMethod\fP\&.
+.PP
+Implemented in \fBSharedVariableSaveSystem\&.SaveBinaryFile\fP, and \fBSharedVariableSaveSystem\&.SavePlayerPrefs\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "string SharedVariableSaveSystem\&.SaveMethod\&.SaveFilePath = ''"
+
+.PP
+The path to the save file 
+.PP
+Definition at line 21 of file SaveMethod\&.cs\&.
+.SH "Property Documentation"
+.PP 
+.SS "abstract bool SharedVariableSaveSystem\&.SaveMethod\&.HasSave\fC [get]\fP"
+
+.PP
+returns true if there is save data available 
+.PP
+Definition at line 25 of file SaveMethod\&.cs\&.
+.SS "abstract DateTime SharedVariableSaveSystem\&.SaveMethod\&.LastSave\fC [get]\fP"
+
+.PP
+the date and time that the save data was last written\&. 
+.PP
+Definition at line 17 of file SaveMethod\&.cs\&.
+.SS "abstract string SharedVariableSaveSystem\&.SaveMethod\&.SaveName\fC [get]\fP"
+
+.PP
+the filename of the save file 
+.PP
+Definition at line 33 of file SaveMethod\&.cs\&.
+.SS "abstract string SharedVariableSaveSystem\&.SaveMethod\&.SavePath\fC [get]\fP"
+
+.PP
+the parsed path to access the save data (file path or url) 
+.PP
+Definition at line 29 of file SaveMethod\&.cs\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Shared Variable Save System from the source code\&.

@@ -1,0 +1,16 @@
+var namespace_shared_variable_save_system_1_1_tests_1_1_var_types =
+[
+    [ "AttributeVariableTests", "class_shared_variable_save_system_1_1_tests_1_1_var_types_1_1_attribute_variable_tests.html", "class_shared_variable_save_system_1_1_tests_1_1_var_types_1_1_attribute_variable_tests" ],
+    [ "BoolVariableTests", "class_shared_variable_save_system_1_1_tests_1_1_var_types_1_1_bool_variable_tests.html", "class_shared_variable_save_system_1_1_tests_1_1_var_types_1_1_bool_variable_tests" ],
+    [ "FloatRangeVariableTests", "class_shared_variable_save_system_1_1_tests_1_1_var_types_1_1_float_range_variable_tests.html", "class_shared_variable_save_system_1_1_tests_1_1_var_types_1_1_float_range_variable_tests" ],
+    [ "FloatVariableTests", "class_shared_variable_save_system_1_1_tests_1_1_var_types_1_1_float_variable_tests.html", "class_shared_variable_save_system_1_1_tests_1_1_var_types_1_1_float_variable_tests" ],
+    [ "IntRangeVariableTests", "class_shared_variable_save_system_1_1_tests_1_1_var_types_1_1_int_range_variable_tests.html", "class_shared_variable_save_system_1_1_tests_1_1_var_types_1_1_int_range_variable_tests" ],
+    [ "IntVariableTests", "class_shared_variable_save_system_1_1_tests_1_1_var_types_1_1_int_variable_tests.html", "class_shared_variable_save_system_1_1_tests_1_1_var_types_1_1_int_variable_tests" ],
+    [ "RangeVariableTests", "class_shared_variable_save_system_1_1_tests_1_1_var_types_1_1_range_variable_tests.html", "class_shared_variable_save_system_1_1_tests_1_1_var_types_1_1_range_variable_tests" ],
+    [ "SavableVariableTest", "class_shared_variable_save_system_1_1_tests_1_1_var_types_1_1_savable_variable_test.html", "class_shared_variable_save_system_1_1_tests_1_1_var_types_1_1_savable_variable_test" ],
+    [ "SharedVariableTests", "class_shared_variable_save_system_1_1_tests_1_1_var_types_1_1_shared_variable_tests.html", "class_shared_variable_save_system_1_1_tests_1_1_var_types_1_1_shared_variable_tests" ],
+    [ "StringVariableTests", "class_shared_variable_save_system_1_1_tests_1_1_var_types_1_1_string_variable_tests.html", "class_shared_variable_save_system_1_1_tests_1_1_var_types_1_1_string_variable_tests" ],
+    [ "TransformVariableTests", "class_shared_variable_save_system_1_1_tests_1_1_var_types_1_1_transform_variable_tests.html", "class_shared_variable_save_system_1_1_tests_1_1_var_types_1_1_transform_variable_tests" ],
+    [ "Vector3IntVariableTests", "class_shared_variable_save_system_1_1_tests_1_1_var_types_1_1_vector3_int_variable_tests.html", "class_shared_variable_save_system_1_1_tests_1_1_var_types_1_1_vector3_int_variable_tests" ],
+    [ "Vector3VariableTests", "class_shared_variable_save_system_1_1_tests_1_1_var_types_1_1_vector3_variable_tests.html", "class_shared_variable_save_system_1_1_tests_1_1_var_types_1_1_vector3_variable_tests" ]
+];

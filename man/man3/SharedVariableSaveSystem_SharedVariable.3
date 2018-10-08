@@ -1,0 +1,218 @@
+.TH "SharedVariableSaveSystem.SharedVariable< T >" 3 "Mon Oct 8 2018" "Shared Variable Save System" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SharedVariableSaveSystem.SharedVariable< T > \- Base abstract class for Scriptable Object variables\&. Extend this class to create new Savable Shared Variables\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSharedVariableSaveSystem\&.SavableVariable\fP, ISerializationCallbackReceiver, \fBSharedVariableSaveSystem\&.ISaveVariable\fP, and \fBSharedVariableSaveSystem\&.IListItemDrawer\fP\&.
+.PP
+Inherited by \fBSharedVariableSaveSystem\&.RangeVariable< T >\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual void \fBOnAfterDeserialize\fP ()"
+.br
+.RI "Applies the default value to the runtime value after deserialization\&. "
+.ti -1c
+.RI "void \fBOnBeforeSerialize\fP ()"
+.br
+.RI "Does nothing\&. "
+.ti -1c
+.RI "override string \fBOnSaveData\fP ()"
+.br
+.RI "Converts runtime value into a string for \fBSaveObject\fP "
+.ti -1c
+.RI "override void \fBOnClearSave\fP ()"
+.br
+.RI "Resets Runtime value to Initial value "
+.ti -1c
+.RI "override string \fBToString\fP ()"
+.br
+.RI "display string for the variable "
+.ti -1c
+.RI "virtual void \fBOnDrawElement\fP (Rect rect, float line_height)"
+.br
+.RI "draws a custom inspector of the variable "
+.ti -1c
+.RI "virtual float \fBGetElementHeight\fP (float line_height)"
+.br
+.RI "gets the height of the element "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "T \fBInitialValue\fP"
+.br
+.RI "The default value for the variable "
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "virtual T \fBRuntimeValue\fP\fC [get, set]\fP"
+.br
+.RI "Runtime value for the variable "
+.ti -1c
+.RI "string \fBRuntimeString\fP\fC [get]\fP"
+.br
+.RI "display string for the runtime value "
+.ti -1c
+.RI "string \fBInitialString\fP\fC [get]\fP"
+.br
+.RI "display string for the initial value "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Base abstract class for Scriptable Object variables\&. Extend this class to create new Savable Shared Variables\&. 
+
+
+.PP
+\fBTemplate Parameters:\fP
+.RS 4
+\fIT\fP Type of runtime value
+.RE
+.PP
+
+.PP
+Definition at line 10 of file SharedVariable\&.cs\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual float \fBSharedVariableSaveSystem\&.SharedVariable\fP< T >\&.GetElementHeight (float line_height)\fC [virtual]\fP"
+
+.PP
+gets the height of the element 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIline_height\fP used to calculate height
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+height of the element
+.RE
+.PP
+
+.PP
+Implements \fBSharedVariableSaveSystem\&.IListItemDrawer\fP\&.
+.PP
+Reimplemented in \fBAttributeVariable\fP\&.
+.PP
+Definition at line 102 of file SharedVariable\&.cs\&.
+.SS "virtual void \fBSharedVariableSaveSystem\&.SharedVariable\fP< T >\&.OnAfterDeserialize ()\fC [virtual]\fP"
+
+.PP
+Applies the default value to the runtime value after deserialization\&. This should happen after changing the default values in the inspector\&. It will also apply the default value when the game starts\&.
+.PP
+Required for ISerializationCallbackReceiver
+.PP
+Reimplemented in \fBAttributeVariable\fP, and \fBVector3Variable\fP\&.
+.PP
+Definition at line 50 of file SharedVariable\&.cs\&.
+.SS "void \fBSharedVariableSaveSystem\&.SharedVariable\fP< T >\&.OnBeforeSerialize ()"
+
+.PP
+Does nothing\&. Required for ISerializationCallbackReceiver
+.PP
+Definition at line 55 of file SharedVariable\&.cs\&.
+.SS "override void \fBSharedVariableSaveSystem\&.SharedVariable\fP< T >\&.OnClearSave ()"
+
+.PP
+Resets Runtime value to Initial value Calls OnAfterDeserialize
+.PP
+\fBRuntimeValue\fP \fBInitialValue\fP 
+.PP
+Implements \fBSharedVariableSaveSystem\&.ISaveVariable\fP\&.
+.PP
+Definition at line 72 of file SharedVariable\&.cs\&.
+.SS "virtual void \fBSharedVariableSaveSystem\&.SharedVariable\fP< T >\&.OnDrawElement (Rect rect, float line_height)\fC [virtual]\fP"
+
+.PP
+draws a custom inspector of the variable 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrect\fP size of element
+.br
+\fIline_height\fP height of a line
+.RE
+.PP
+
+.PP
+Implements \fBSharedVariableSaveSystem\&.IListItemDrawer\fP\&.
+.PP
+Reimplemented in \fBAttributeVariable\fP, \fBVector3Variable\fP, \fBVector3IntVariable\fP, \fBStringVariable\fP, \fBIntVariable\fP, \fBBoolVariable\fP, and \fBFloatVariable\fP\&.
+.PP
+Definition at line 92 of file SharedVariable\&.cs\&.
+.SS "override string \fBSharedVariableSaveSystem\&.SharedVariable\fP< T >\&.OnSaveData ()"
+
+.PP
+Converts runtime value into a string for \fBSaveObject\fP 
+.PP
+\fBReturns:\fP
+.RS 4
+String of runtime value
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBSaveObject\fP
+.PP
+.RE
+.PP
+
+.PP
+Implements \fBSharedVariableSaveSystem\&.ISaveVariable\fP\&.
+.PP
+Definition at line 62 of file SharedVariable\&.cs\&.
+.SS "override string \fBSharedVariableSaveSystem\&.SharedVariable\fP< T >\&.ToString ()"
+
+.PP
+display string for the variable 
+.PP
+\fBReturns:\fP
+.RS 4
+display string
+.RE
+.PP
+
+.PP
+Definition at line 81 of file SharedVariable\&.cs\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "T \fBSharedVariableSaveSystem\&.SharedVariable\fP< T >\&.InitialValue"
+
+.PP
+The default value for the variable 
+.PP
+Definition at line 15 of file SharedVariable\&.cs\&.
+.SH "Property Documentation"
+.PP 
+.SS "string \fBSharedVariableSaveSystem\&.SharedVariable\fP< T >\&.InitialString\fC [get]\fP"
+
+.PP
+display string for the initial value 
+.PP
+Definition at line 36 of file SharedVariable\&.cs\&.
+.SS "string \fBSharedVariableSaveSystem\&.SharedVariable\fP< T >\&.RuntimeString\fC [get]\fP"
+
+.PP
+display string for the runtime value 
+.PP
+Definition at line 24 of file SharedVariable\&.cs\&.
+.SS "virtual T \fBSharedVariableSaveSystem\&.SharedVariable\fP< T >\&.RuntimeValue\fC [get]\fP, \fC [set]\fP"
+
+.PP
+Runtime value for the variable 
+.PP
+Definition at line 19 of file SharedVariable\&.cs\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Shared Variable Save System from the source code\&.

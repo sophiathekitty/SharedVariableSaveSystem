@@ -1,0 +1,98 @@
+.TH "SharedVariableSaveSystem.SavableVariable" 3 "Mon Oct 8 2018" "Shared Variable Save System" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SharedVariableSaveSystem.SavableVariable \- Base abstract class for savable variables\&. Used with Save Object to save and load data\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits ScriptableObject\&.
+.PP
+Inherited by \fBSharedVariableSaveSystem\&.SharedVariable< T >\fP, and \fBTransformVariable\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "abstract void \fBOnClearSave\fP ()"
+.br
+.RI "Clear the saved data "
+.ti -1c
+.RI "abstract string \fBOnSaveData\fP ()"
+.br
+.RI "Converts runtime data to a string to be saved "
+.ti -1c
+.RI "abstract void \fBOnLoadData\fP (string data)"
+.br
+.RI "Parses string of data into runtime data "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "bool \fBLoaded\fP = false"
+.br
+.RI "Set to true if data has been loaded "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Base abstract class for savable variables\&. Used with Save Object to save and load data\&. 
+
+
+.PP
+\fBSee also:\fP
+.RS 4
+\fBSaveObject\fP
+.PP
+.RE
+.PP
+
+.PP
+Definition at line 10 of file SavableVariable\&.cs\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "abstract void SharedVariableSaveSystem\&.SavableVariable\&.OnClearSave ()\fC [pure virtual]\fP"
+
+.PP
+Clear the saved data 
+.PP
+Implemented in \fBTransformVariable\fP, and \fBSharedVariableSaveSystem\&.SharedVariable< T >\fP\&.
+.SS "abstract void SharedVariableSaveSystem\&.SavableVariable\&.OnLoadData (string data)\fC [pure virtual]\fP"
+
+.PP
+Parses string of data into runtime data 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdata\fP Data to be loaded
+.RE
+.PP
+
+.PP
+Implemented in \fBTransformVariable\fP\&.
+.SS "abstract string SharedVariableSaveSystem\&.SavableVariable\&.OnSaveData ()\fC [pure virtual]\fP"
+
+.PP
+Converts runtime data to a string to be saved 
+.PP
+\fBReturns:\fP
+.RS 4
+String of runtime data
+.RE
+.PP
+
+.PP
+Implemented in \fBTransformVariable\fP, and \fBSharedVariableSaveSystem\&.SharedVariable< T >\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "bool SharedVariableSaveSystem\&.SavableVariable\&.Loaded = false"
+
+.PP
+Set to true if data has been loaded 
+.PP
+Definition at line 30 of file SavableVariable\&.cs\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Shared Variable Save System from the source code\&.

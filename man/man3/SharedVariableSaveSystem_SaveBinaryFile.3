@@ -1,0 +1,197 @@
+.TH "SharedVariableSaveSystem.SaveBinaryFile" 3 "Mon Oct 8 2018" "Shared Variable Save System" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SharedVariableSaveSystem.SaveBinaryFile \- Saves a binary file to the local disk\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSharedVariableSaveSystem\&.SaveMethod\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "override Dictionary< int, string > \fBLoadData\fP (Dictionary< int, string > data)"
+.br
+.RI "loads the binary file and deserializes it into a Dictionary "
+.ti -1c
+.RI "override void \fBSaveData\fP (Dictionary< int, string > data)"
+.br
+.RI "serialize the data into a binary file and write it to the disk "
+.ti -1c
+.RI "override void \fBClearData\fP (Dictionary< int, string > data)"
+.br
+.RI "clears out all of the save data "
+.ti -1c
+.RI "override float \fBGetElementHeight\fP (float line_height)"
+.br
+.RI "returns the height of the item property drawer "
+.ti -1c
+.RI "override void \fBOnDrawElement\fP (Rect rect, float line_height)"
+.br
+.RI "draws the custom item property view for this save method "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "string \fBSaveExtension\fP = 'dat'"
+.br
+.RI "The file extension to be used for the save file "
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "override string \fBSavePath\fP\fC [get]\fP"
+.br
+.RI "Combines the save path and filename\&. uses asset name for file name\&. "
+.ti -1c
+.RI "override bool \fBHasSave\fP\fC [get]\fP"
+.br
+.RI "checks to see if the save file exists "
+.ti -1c
+.RI "override DateTime \fBLastSave\fP\fC [get]\fP"
+.br
+.RI "checks to see what the last access time was for the save file or returns a default time\&. "
+.ti -1c
+.RI "override string \fBSaveName\fP\fC [get]\fP"
+.br
+.RI "display name for the save file "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Saves a binary file to the local disk\&. 
+
+
+.PP
+Definition at line 14 of file SaveBinaryFile\&.cs\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "override void SharedVariableSaveSystem\&.SaveBinaryFile\&.ClearData (Dictionary< int, string > data)\fC [virtual]\fP"
+
+.PP
+clears out all of the save data 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdata\fP data structure to clear out
+.RE
+.PP
+\fBSaveMethod\fP 
+.PP
+Implements \fBSharedVariableSaveSystem\&.SaveMethod\fP\&.
+.PP
+Definition at line 119 of file SaveBinaryFile\&.cs\&.
+.SS "override float SharedVariableSaveSystem\&.SaveBinaryFile\&.GetElementHeight (float line_height)\fC [virtual]\fP"
+
+.PP
+returns the height of the item property drawer 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIline_height\fP height of a line
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+height of the element
+.RE
+.PP
+\fBIListItemDrawer\fP 
+.PP
+Reimplemented from \fBSharedVariableSaveSystem\&.SaveMethod\fP\&.
+.PP
+Definition at line 132 of file SaveBinaryFile\&.cs\&.
+.SS "override Dictionary<int, string> SharedVariableSaveSystem\&.SaveBinaryFile\&.LoadData (Dictionary< int, string > data)\fC [virtual]\fP"
+
+.PP
+loads the binary file and deserializes it into a Dictionary 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdata\fP the data structure to load
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the loaded data
+.RE
+.PP
+\fBSaveMethod\fP 
+.PP
+Implements \fBSharedVariableSaveSystem\&.SaveMethod\fP\&.
+.PP
+Definition at line 80 of file SaveBinaryFile\&.cs\&.
+.SS "override void SharedVariableSaveSystem\&.SaveBinaryFile\&.OnDrawElement (Rect rect, float line_height)\fC [virtual]\fP"
+
+.PP
+draws the custom item property view for this save method 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrect\fP size of the element
+.br
+\fIline_height\fP height of a line
+.RE
+.PP
+\fBIListItemDrawer\fP 
+.PP
+Reimplemented from \fBSharedVariableSaveSystem\&.SaveMethod\fP\&.
+.PP
+Definition at line 143 of file SaveBinaryFile\&.cs\&.
+.SS "override void SharedVariableSaveSystem\&.SaveBinaryFile\&.SaveData (Dictionary< int, string > data)\fC [virtual]\fP"
+
+.PP
+serialize the data into a binary file and write it to the disk 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdata\fP data to save
+.RE
+.PP
+\fBSaveMethod\fP 
+.PP
+Implements \fBSharedVariableSaveSystem\&.SaveMethod\fP\&.
+.PP
+Definition at line 101 of file SaveBinaryFile\&.cs\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "string SharedVariableSaveSystem\&.SaveBinaryFile\&.SaveExtension = 'dat'"
+
+.PP
+The file extension to be used for the save file 
+.PP
+Definition at line 19 of file SaveBinaryFile\&.cs\&.
+.SH "Property Documentation"
+.PP 
+.SS "override bool SharedVariableSaveSystem\&.SaveBinaryFile\&.HasSave\fC [get]\fP"
+
+.PP
+checks to see if the save file exists \fBSaveMethod\fP 
+.PP
+Definition at line 40 of file SaveBinaryFile\&.cs\&.
+.SS "override DateTime SharedVariableSaveSystem\&.SaveBinaryFile\&.LastSave\fC [get]\fP"
+
+.PP
+checks to see what the last access time was for the save file or returns a default time\&. \fBSaveMethod\fP 
+.PP
+Definition at line 52 of file SaveBinaryFile\&.cs\&.
+.SS "override string SharedVariableSaveSystem\&.SaveBinaryFile\&.SaveName\fC [get]\fP"
+
+.PP
+display name for the save file \fBSaveMethod\fP 
+.PP
+Definition at line 67 of file SaveBinaryFile\&.cs\&.
+.SS "override string SharedVariableSaveSystem\&.SaveBinaryFile\&.SavePath\fC [get]\fP"
+
+.PP
+Combines the save path and filename\&. uses asset name for file name\&. \fBSaveMethod\fP 
+.PP
+Definition at line 26 of file SaveBinaryFile\&.cs\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Shared Variable Save System from the source code\&.

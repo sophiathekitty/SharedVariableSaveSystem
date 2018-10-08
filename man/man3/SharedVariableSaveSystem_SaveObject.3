@@ -1,0 +1,124 @@
+.TH "SharedVariableSaveSystem.SaveObject" 3 "Mon Oct 8 2018" "Shared Variable Save System" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SharedVariableSaveSystem.SaveObject \- Holds a set of references to Savable Variables and Save Methods\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits ScriptableObject\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBSaveData\fP ()"
+.br
+.RI "Saves the data to all of the save locations "
+.ti -1c
+.RI "void \fBLoadData\fP ()"
+.br
+.RI "Loads the data from the most recent save location "
+.ti -1c
+.RI "void \fBClearSaveData\fP ()"
+.br
+.RI "Reset data "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "List< \fBSaveMethod\fP > \fBSaveLocations\fP"
+.br
+.RI "List of different places to save\&. "
+.ti -1c
+.RI "List< \fBSavableVariable\fP > \fBData\fP"
+.br
+.RI "List of the savable variables to save "
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "bool \fBHasSave\fP\fC [get]\fP"
+.br
+.RI "Whether or not a save data exists "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Holds a set of references to Savable Variables and Save Methods\&. 
+
+use multiple save methods to sync save data between multiple locations\&. list order to prioritize save location when loading\&.
+.PP
+Definition at line 15 of file SaveObject\&.cs\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void SharedVariableSaveSystem\&.SaveObject\&.ClearSaveData ()"
+
+.PP
+Reset data 
+.PP
+Definition at line 98 of file SaveObject\&.cs\&.
+.SS "void SharedVariableSaveSystem\&.SaveObject\&.LoadData ()"
+
+.PP
+Loads the data from the most recent save location 
+.PP
+Definition at line 71 of file SaveObject\&.cs\&.
+.SS "void SharedVariableSaveSystem\&.SaveObject\&.SaveData ()"
+
+.PP
+Saves the data to all of the save locations 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBSaveMethod\fP
+.PP
+.RE
+.PP
+
+.PP
+Definition at line 62 of file SaveObject\&.cs\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "List<\fBSavableVariable\fP> SharedVariableSaveSystem\&.SaveObject\&.Data"
+
+.PP
+List of the savable variables to save 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBSavableVariable\fP
+.PP
+.RE
+.PP
+
+.PP
+Definition at line 39 of file SaveObject\&.cs\&.
+.SS "List<\fBSaveMethod\fP> SharedVariableSaveSystem\&.SaveObject\&.SaveLocations"
+
+.PP
+List of different places to save\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBSaveMethod\fP
+.PP
+.RE
+.PP
+
+.PP
+Definition at line 34 of file SaveObject\&.cs\&.
+.SH "Property Documentation"
+.PP 
+.SS "bool SharedVariableSaveSystem\&.SaveObject\&.HasSave\fC [get]\fP"
+
+.PP
+Whether or not a save data exists 
+.PP
+Definition at line 21 of file SaveObject\&.cs\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Shared Variable Save System from the source code\&.

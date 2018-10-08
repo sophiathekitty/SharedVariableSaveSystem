@@ -1,0 +1,103 @@
+.TH "IntRangeVariable" 3 "Mon Oct 8 2018" "Shared Variable Save System" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+IntRangeVariable \- Scriptable Object for storing an int range  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSharedVariableSaveSystem\&.RangeVariable< int >\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "override void \fBOnLoadData\fP (string data)"
+.br
+.RI "Loads data into runtime value "
+.ti -1c
+.RI "override void \fBOnDrawElement\fP (Rect rect, float line_height)"
+.br
+.RI "draws the custom inspector for an element "
+.ti -1c
+.RI "override float \fBGetElementHeight\fP (float line_height)"
+.br
+.RI "calculates height of element "
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "override float \fBFloatValue\fP\fC [get, set]\fP"
+.br
+.RI "Converts the int Runtime value to a float for percent calculations "
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Scriptable Object for storing an int range 
+
+
+.PP
+Definition at line 12 of file IntRangeVariable\&.cs\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "override float IntRangeVariable\&.GetElementHeight (float line_height)"
+
+.PP
+calculates height of element 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIline_height\fP used to calculate height
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+height of element
+.RE
+.PP
+
+.PP
+Definition at line 75 of file IntRangeVariable\&.cs\&.
+.SS "override void IntRangeVariable\&.OnDrawElement (Rect rect, float line_height)"
+
+.PP
+draws the custom inspector for an element 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrect\fP size of element
+.br
+\fIline_height\fP height of a line
+.RE
+.PP
+IListItemDrawer 
+.PP
+Definition at line 47 of file IntRangeVariable\&.cs\&.
+.SS "override void IntRangeVariable\&.OnLoadData (string data)"
+
+.PP
+Loads data into runtime value 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdata\fP String data to be parsed into runtime int
+.RE
+.PP
+
+.PP
+Definition at line 35 of file IntRangeVariable\&.cs\&.
+.SH "Property Documentation"
+.PP 
+.SS "override float IntRangeVariable\&.FloatValue\fC [get]\fP, \fC [set]\fP"
+
+.PP
+Converts the int Runtime value to a float for percent calculations RangeVariable<T>\&.Percent 
+.PP
+Definition at line 19 of file IntRangeVariable\&.cs\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Shared Variable Save System from the source code\&.

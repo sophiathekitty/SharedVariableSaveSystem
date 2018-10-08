@@ -1,0 +1,105 @@
+.TH "FloatRangeVariable" 3 "Mon Oct 8 2018" "Shared Variable Save System" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+FloatRangeVariable \- Scriptable Object for storing a float range  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSharedVariableSaveSystem\&.RangeVariable< float >\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "override void \fBOnLoadData\fP (string data)"
+.br
+.RI "Loads Runtime value "
+.ti -1c
+.RI "override void \fBOnDrawElement\fP (Rect rect, float line_height)"
+.br
+.RI "draws the custom inspector for an element "
+.ti -1c
+.RI "override float \fBGetElementHeight\fP (float line_height)"
+.br
+.RI "calculates height of element "
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "override float \fBFloatValue\fP\fC [get, set]\fP"
+.br
+.RI "Alias for Runtime value "
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Scriptable Object for storing a float range 
+
+
+.PP
+Definition at line 12 of file FloatRangeVariable\&.cs\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "override float FloatRangeVariable\&.GetElementHeight (float line_height)"
+
+.PP
+calculates height of element 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIline_height\fP used to calculate height
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+height of element
+.RE
+.PP
+
+.PP
+Definition at line 76 of file FloatRangeVariable\&.cs\&.
+.SS "override void FloatRangeVariable\&.OnDrawElement (Rect rect, float line_height)"
+
+.PP
+draws the custom inspector for an element 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrect\fP size of element
+.br
+\fIline_height\fP height of a line
+.RE
+.PP
+IListItemDrawer 
+.PP
+Definition at line 48 of file FloatRangeVariable\&.cs\&.
+.SS "override void FloatRangeVariable\&.OnLoadData (string data)"
+
+.PP
+Loads Runtime value 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdata\fP Data to be loaded into runtime value
+.RE
+.PP
+
+.PP
+Definition at line 36 of file FloatRangeVariable\&.cs\&.
+.SH "Property Documentation"
+.PP 
+.SS "override float FloatRangeVariable\&.FloatValue\fC [get]\fP, \fC [set]\fP"
+
+.PP
+Alias for Runtime value used for Percent
+.PP
+RangeVariable<T>\&.Percent 
+.PP
+Definition at line 20 of file FloatRangeVariable\&.cs\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Shared Variable Save System from the source code\&.
