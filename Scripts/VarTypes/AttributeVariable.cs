@@ -7,7 +7,7 @@ using SharedVariableSaveSystem;
 /// a game attribute. like player health. includes an unavailable value to dynamically reduce the max value. max value can also be changed. like getting more health after leveling up
 /// </summary>
 [CreateAssetMenu(menuName = "Save System/Variables/Attribute Variable")]
-[HelpURL("https://github.com/sophiathekitty/SharedVariableSaveSystem/wiki/AttributeVariable")]
+[HelpURL("https://sophiathekitty.github.io/SharedVariableSaveSystem/html/class_attribute_variable.html")]
 public class AttributeVariable : SharedVariable<float>
 {
     /// <summary>

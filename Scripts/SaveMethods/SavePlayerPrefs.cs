@@ -8,6 +8,7 @@ namespace SharedVariableSaveSystem
     /// Saves data using PlayerPrefs
     /// </summary>
     [CreateAssetMenu(menuName = "Save System/Save Method/PlayerPrefs", fileName = "PlayerPrefs")]
+    [HelpURL("https://sophiathekitty.github.io/SharedVariableSaveSystem/html/class_shared_variable_save_system_1_1_save_player_prefs.html")]
     public class SavePlayerPrefs : SaveMethod
     {
         /// <summary>

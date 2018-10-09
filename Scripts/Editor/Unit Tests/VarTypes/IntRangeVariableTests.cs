@@ -4,10 +4,18 @@ using NUnit.Framework;
 using System.Collections;
 namespace SharedVariableSaveSystem.Tests.VarTypes
 {
+    /// <summary>
+    /// test fixture for int range variable
+    /// </summary>
     [TestFixture]
     public class IntRangeVariableTests : RangeVariableTests<int>
     {
         IntRangeVariable intRangeVariable = ScriptableObject.CreateInstance<IntRangeVariable>();
+
+        /// <summary>
+        /// setup test data
+        /// </summary>
+        /// <returns></returns>
         [UnityTest]
         public override IEnumerator _00_Setup()
         {

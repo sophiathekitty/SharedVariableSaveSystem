@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-
+/// <summary>
+/// custom editor for int range variable
+/// </summary>
 [CustomEditor(typeof(IntRangeVariable))]
 public class IntRangeVariableEditor : Editor
 {

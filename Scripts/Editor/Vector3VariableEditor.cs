@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-
+/// <summary>
+/// custom editor for vector3 variable
+/// </summary>
 [CustomEditor(typeof(Vector3Variable))]
 public class Vector3VariableEditor : Editor {
     public override void OnInspectorGUI()

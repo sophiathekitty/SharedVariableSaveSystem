@@ -8,7 +8,7 @@ using SharedVariableSaveSystem;
 /// Scriptable Object for storing a Vector3Int
 /// </summary>
 [CreateAssetMenu(menuName = "Save System/Variables/Vector3Int Variable")]
-[HelpURL("https://github.com/sophiathekitty/SharedVariableSaveSystem/wiki/Vector3IntVariable")]
+[HelpURL("https://sophiathekitty.github.io/SharedVariableSaveSystem/html/class_vector3_int_variable.html")]
 public class Vector3IntVariable : SharedVariable<Vector3Int>
 {
     /// <summary>

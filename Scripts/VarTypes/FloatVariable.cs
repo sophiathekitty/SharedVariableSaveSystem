@@ -7,7 +7,7 @@ using SharedVariableSaveSystem;
 /// Scriptable Object for storing a float
 /// </summary>
 [CreateAssetMenu(menuName = "Save System/Variables/Float Variable")]
-[HelpURL("https://github.com/sophiathekitty/SharedVariableSaveSystem/wiki/FloatVariable")]
+[HelpURL("https://sophiathekitty.github.io/SharedVariableSaveSystem/html/class_float_variable.html")]
 public class FloatVariable : SharedVariable<float>
 {
     /// <summary>

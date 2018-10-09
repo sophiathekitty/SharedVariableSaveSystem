@@ -7,6 +7,7 @@ namespace SharedVariableSaveSystem
     /// Base abstract class for a range variable. Adds range limit utils
     /// </summary>
     /// <typeparam name="T">Type of value for the range variable</typeparam>
+    [HelpURL("https://sophiathekitty.github.io/SharedVariableSaveSystem/html/class_shared_variable_save_system_1_1_range_variable.html")]
     public abstract class RangeVariable<T> : SharedVariable<T>
     {
         /// <summary>

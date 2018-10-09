@@ -5,6 +5,9 @@ using System.Collections;
 
 namespace SharedVariableSaveSystem.Tests.VarTypes
 {
+    /// <summary>
+    /// test fixture for attribute variable
+    /// </summary>
     [TestFixture]
     public class AttributeVariableTests : SharedVariableTests<float>
     {
@@ -14,6 +17,10 @@ namespace SharedVariableSaveSystem.Tests.VarTypes
         float rMax = 4;
         float iUn = 0;
 
+        /// <summary>
+        /// setup test data
+        /// </summary>
+        /// <returns></returns>
         [UnityTest]
         public override IEnumerator _00_Setup()
         {
@@ -32,6 +39,10 @@ namespace SharedVariableSaveSystem.Tests.VarTypes
             yield return base._00_Setup();
         }
 
+        /// <summary>
+        /// validate that it can't go over the max value
+        /// </summary>
+        /// <returns></returns>
         [UnityTest]
         public IEnumerator _30_Over()
         {
@@ -42,7 +53,10 @@ namespace SharedVariableSaveSystem.Tests.VarTypes
             Assert.AreEqual(rMax, attributeVariable.RuntimeValue);
 
         }
-
+        /// <summary>
+        /// validate that it can't go under 0
+        /// </summary>
+        /// <returns></returns>
         [UnityTest]
         public IEnumerator _40_Under()
         {
@@ -53,6 +67,10 @@ namespace SharedVariableSaveSystem.Tests.VarTypes
             Assert.AreEqual(0, attributeVariable.RuntimeValue, "Shouldn't be able to go bellow zero.");
 
         }
+        /// <summary>
+        /// validate that unavailable reduces max available value
+        /// </summary>
+        /// <returns></returns>
         [UnityTest]
         public IEnumerator _50_Unavailable()
         {
@@ -63,6 +81,5 @@ namespace SharedVariableSaveSystem.Tests.VarTypes
 
             Assert.AreEqual(rMax - iUn, attributeVariable.RuntimeValue,"Unavailable should be subtracted from the max.");
         }
-
     }
 }

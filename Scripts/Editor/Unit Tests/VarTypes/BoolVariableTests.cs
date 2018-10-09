@@ -5,11 +5,18 @@ using System.Collections;
 
 namespace SharedVariableSaveSystem.Tests.VarTypes
 {
+    /// <summary>
+    /// text fixture for bool varaible
+    /// </summary>
     [TestFixture]
     public class BoolVariableTests : SharedVariableTests<bool>
     {
         BoolVariable boolVariable = ScriptableObject.CreateInstance<BoolVariable>();
 
+        /// <summary>
+        /// setup test data
+        /// </summary>
+        /// <returns></returns>
         [UnityTest]
         public override IEnumerator _00_Setup()
         {

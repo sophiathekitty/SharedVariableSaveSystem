@@ -5,11 +5,17 @@ using System.Collections;
 
 namespace SharedVariableSaveSystem.Tests.VarTypes
 {
+    /// <summary>
+    /// test fixture for vector3 variable
+    /// </summary>
     [TestFixture]
     public class Vector3VariableTests : SharedVariableTests<Vector3>
     {
         Vector3Variable floatVariable = ScriptableObject.CreateInstance<Vector3Variable>();
-
+        /// <summary>
+        /// setup test data
+        /// </summary>
+        /// <returns></returns>
         [UnityTest]
         public override IEnumerator _00_Setup()
         {

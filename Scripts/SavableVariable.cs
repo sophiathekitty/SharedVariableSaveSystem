@@ -7,6 +7,7 @@ namespace SharedVariableSaveSystem
     /// Base abstract class for savable variables. Used with Save Object to save and load data.
     /// </summary>
     /// <seealso cref="SaveObject"/>
+    [HelpURL("https://sophiathekitty.github.io/SharedVariableSaveSystem/html/class_shared_variable_save_system_1_1_savable_variable.html")]
     public abstract class SavableVariable : ScriptableObject
     {
         /// <summary>

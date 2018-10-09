@@ -8,7 +8,7 @@ using SharedVariableSaveSystem;
 /// holds position, rotation, and scale
 /// </summary>
 [CreateAssetMenu(menuName = "Save System/Variables/Transform Variable")]
-[HelpURL("https://github.com/sophiathekitty/SharedVariableSaveSystem/wiki/TransformVariable")]
+[HelpURL("https://sophiathekitty.github.io/SharedVariableSaveSystem/html/class_transform_variable.html")]
 public class TransformVariable : SavableVariable, ISerializationCallbackReceiver, IListItemDrawer {
     /// <summary>
     /// initial position

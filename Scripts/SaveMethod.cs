@@ -10,6 +10,7 @@ namespace SharedVariableSaveSystem
     /// </summary>
     /// <seealso cref="ISaveMethod"/>
     /// <seealso cref="IListItemDrawer"/>
+    [HelpURL("https://sophiathekitty.github.io/SharedVariableSaveSystem/html/class_shared_variable_save_system_1_1_save_method.html")]
     public abstract class SaveMethod : ScriptableObject, ISaveMethod, IListItemDrawer {
         /// <summary>
         /// the date and time that the save data was last written.

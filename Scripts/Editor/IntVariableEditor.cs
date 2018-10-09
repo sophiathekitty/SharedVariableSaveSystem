@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-
+/// <summary>
+/// custom editor for int variable
+/// </summary>
 [CustomEditor(typeof(IntVariable))]
 public class IntVariableEditor : Editor {
     public override void OnInspectorGUI()

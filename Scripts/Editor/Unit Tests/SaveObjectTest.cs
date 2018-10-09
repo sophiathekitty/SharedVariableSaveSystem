@@ -6,6 +6,9 @@ using NUnit.Framework;
 
 namespace SharedVariableSaveSystem.Tests
 {
+    /// <summary>
+    /// test fixture for save object
+    /// </summary>
     [TestFixture]
     public class SaveObjectTest
     {

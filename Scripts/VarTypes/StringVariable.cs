@@ -7,7 +7,7 @@ using SharedVariableSaveSystem;
 /// Scriptable Object for storing a string
 /// </summary>
 [CreateAssetMenu(menuName = "Save System/Variables/String Variable")]
-[HelpURL("https://github.com/sophiathekitty/SharedVariableSaveSystem/wiki/StringVariable")]
+[HelpURL("https://sophiathekitty.github.io/SharedVariableSaveSystem/html/class_string_variable.html")]
 public class StringVariable : SharedVariable<string>
 {
     /// <summary>

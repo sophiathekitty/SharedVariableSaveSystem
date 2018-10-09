@@ -5,11 +5,18 @@ using System.Collections;
 
 namespace SharedVariableSaveSystem.Tests.VarTypes
 {
+    /// <summary>
+    /// test fixture for float variable
+    /// </summary>
     [TestFixture]
     public class FloatVariableTests : SharedVariableTests<float>
     {
         FloatVariable floatVariable = ScriptableObject.CreateInstance<FloatVariable>();
 
+        /// <summary>
+        /// setup test data
+        /// </summary>
+        /// <returns></returns>
         [UnityTest]
         public override IEnumerator _00_Setup()
         {

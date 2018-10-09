@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-
+/// <summary>
+/// custom editor for float range 
+/// </summary>
 [CustomEditor(typeof(FloatRangeVariable))]
 public class FloatRangeVariableEditor : Editor
 {

@@ -4,6 +4,10 @@ using NUnit.Framework;
 using System.Collections;
 namespace SharedVariableSaveSystem.Tests.VarTypes
 {
+    /// <summary>
+    /// generic abstract text fixture for shared variable
+    /// </summary>
+    /// <typeparam name="T">generic type</typeparam>
     [TestFixture]
     public abstract class SharedVariableTests<T> : SavableVariableTest
     {

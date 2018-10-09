@@ -8,7 +8,7 @@ using SharedVariableSaveSystem;
 /// Scriptable Object for storing an int range
 /// </summary>
 [CreateAssetMenu(menuName = "Save System/Variables/Range/Int Range Variable")]
-[HelpURL("https://github.com/sophiathekitty/SharedVariableSaveSystem/wiki/IntRangeVariable")]
+[HelpURL("https://sophiathekitty.github.io/SharedVariableSaveSystem/html/class_int_range_variable.html")]
 public class IntRangeVariable : RangeVariable<int>
 {
     /// <summary>

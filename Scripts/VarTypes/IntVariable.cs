@@ -7,7 +7,7 @@ using SharedVariableSaveSystem;
 /// Scriptable Ojbect for storing an int
 /// </summary>
 [CreateAssetMenu(menuName = "Save System/Variables/Int Variable")]
-[HelpURL("https://github.com/sophiathekitty/SharedVariableSaveSystem/wiki/IntVariable")]
+[HelpURL("https://sophiathekitty.github.io/SharedVariableSaveSystem/html/class_int_variable.html")]
 public class IntVariable : SharedVariable<int>
 {
     /// <summary>

@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-
+/// <summary>
+/// custom editor for bool variable
+/// </summary>
 [CustomEditor(typeof(BoolVariable))]
 public class BoolVariableEditor : Editor {
     public override void OnInspectorGUI()

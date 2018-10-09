@@ -7,7 +7,7 @@ using SharedVariableSaveSystem;
 /// Scriptable Object for storing a bool
 /// </summary>
 [CreateAssetMenu(menuName = "Save System/Variables/Bool Variable")]
-[HelpURL("https://github.com/sophiathekitty/SharedVariableSaveSystem/wiki/BoolVariable")]
+[HelpURL("https://sophiathekitty.github.io/SharedVariableSaveSystem/html/class_bool_variable.html")]
 public class BoolVariable : SharedVariable<bool>
 {
     /// <summary>

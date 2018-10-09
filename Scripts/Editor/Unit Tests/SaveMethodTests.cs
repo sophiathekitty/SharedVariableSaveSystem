@@ -7,6 +7,9 @@ using System;
 
 namespace SharedVariableSaveSystem.Tests.SaveMethods
 {
+    /// <summary>
+    /// test fixture for save methods
+    /// </summary>
     [TestFixture]
     public abstract class SaveMethodTests
     {

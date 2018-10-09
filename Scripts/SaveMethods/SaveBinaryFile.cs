@@ -11,6 +11,7 @@ namespace SharedVariableSaveSystem
     /// Saves a binary file to the local disk.
     /// </summary>
     [CreateAssetMenu(menuName = "Save System/Save Method/BinaryFile", fileName = "Save")]
+    [HelpURL("https://sophiathekitty.github.io/SharedVariableSaveSystem/html/class_shared_variable_save_system_1_1_save_binary_file.html")]
     public class SaveBinaryFile : SaveMethod
     {
         /// <summary>

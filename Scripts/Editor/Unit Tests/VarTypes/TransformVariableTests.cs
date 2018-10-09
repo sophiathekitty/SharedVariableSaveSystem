@@ -5,6 +5,9 @@ using System.Collections;
 
 namespace SharedVariableSaveSystem.Tests.VarTypes
 {
+    /// <summary>
+    /// test fixture for transform variable
+    /// </summary>
     [TestFixture]
     public class TransformVariableTests : SavableVariableTest
     {
@@ -13,6 +16,10 @@ namespace SharedVariableSaveSystem.Tests.VarTypes
         Vector3 iPos, iRot, iSca;
         Vector3 rPos, rRot, rSca;
 
+        /// <summary>
+        /// setup test data
+        /// </summary>
+        /// <returns></returns>
         [UnityTest]
         public override IEnumerator _00_Setup()
         {
@@ -39,7 +46,10 @@ namespace SharedVariableSaveSystem.Tests.VarTypes
             Assert.AreEqual(rRot, transformVariable.RuntimeRotation);
             Assert.AreEqual(rSca, transformVariable.RuntimeScale);
         }
-
+        /// <summary>
+        /// validate that it can get data from a transform referense
+        /// </summary>
+        /// <returns></returns>
         [UnityTest]
         public IEnumerator _30_SetTransform()
         {

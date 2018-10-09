@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-
+/// <summary>
+/// custom editor for transform variable
+/// </summary>
 [CustomEditor(typeof(TransformVariable))]
 public class TransformVariableEditor : Editor {
     public override void OnInspectorGUI()

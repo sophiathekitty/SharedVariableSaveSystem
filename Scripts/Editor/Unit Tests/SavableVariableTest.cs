@@ -4,6 +4,9 @@ using NUnit.Framework;
 using System.Collections;
 namespace SharedVariableSaveSystem.Tests.VarTypes
 {
+    /// <summary>
+    /// test fixture for savable variables
+    /// </summary>
     [TestFixture]
     public abstract class SavableVariableTest
     {

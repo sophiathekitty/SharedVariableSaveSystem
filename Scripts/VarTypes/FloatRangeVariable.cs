@@ -8,7 +8,7 @@ using SharedVariableSaveSystem;
 /// Scriptable Object for storing a float range
 /// </summary>
 [CreateAssetMenu(menuName = "Save System/Variables/Range/Float Range Variable")]
-[HelpURL("https://github.com/sophiathekitty/SharedVariableSaveSystem/wiki/FloatRangeVariable")]
+[HelpURL("https://sophiathekitty.github.io/SharedVariableSaveSystem/html/class_float_range_variable.html")]
 public class FloatRangeVariable : RangeVariable<float>
 {
     /// <summary>

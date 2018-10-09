@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-
+/// <summary>
+/// custom editor for float variable 
+/// </summary>
 [CustomEditor(typeof(FloatVariable))]
 public class FloatVariableEditor : Editor {
     public override void OnInspectorGUI()

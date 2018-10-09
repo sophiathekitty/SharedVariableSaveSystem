@@ -4,6 +4,10 @@ using NUnit.Framework;
 using System.Collections;
 namespace SharedVariableSaveSystem.Tests.VarTypes
 {
+    /// <summary>
+    /// generic abstract test fixture for range variables
+    /// </summary>
+    /// <typeparam name="T">generic type</typeparam>
     [TestFixture]
     public abstract class RangeVariableTests<T> : SharedVariableTests<T>
     {
