@@ -10,6 +10,11 @@ namespace SharedVariableSaveSystem
     public abstract class RangeVariable<T> : SharedVariable<T>
     {
         /// <summary>
+        /// Inverts the percentage value of the range. MaxValue becomes 0% of the range
+        /// </summary>
+        public bool Descending;
+
+        /// <summary>
         /// Lowest possible value
         /// </summary>
         public float MinValue;
@@ -17,10 +22,7 @@ namespace SharedVariableSaveSystem
         /// Largest possible value
         /// </summary>
         public float MaxValue;
-        /// <summary>
-        /// Inverts the percentage value of the range. MaxValue becomes 0% of the range
-        /// </summary>
-        public bool Descending;
+        
         /// <summary>
         /// Value used to calculate percentage of range.
         /// </summary>
@@ -48,6 +50,7 @@ namespace SharedVariableSaveSystem
                 FitToRange();
             }
         }
+        
         /// <summary>
         /// Ensures that the float value is within the min and max of the range.
         /// </summary>
@@ -58,6 +61,5 @@ namespace SharedVariableSaveSystem
             if (FloatValue < MinValue)
                 FloatValue = MinValue;
         }
-
     }
 }

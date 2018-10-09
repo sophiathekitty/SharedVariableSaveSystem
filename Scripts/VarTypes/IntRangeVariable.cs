@@ -63,7 +63,7 @@ public class IntRangeVariable : RangeVariable<int>
             MaxValue = EditorGUI.IntField(new Rect(rect.x + rect.width / 3, rect.y + line_height, rect.width / 3, line_height - 2), (int)MaxValue);
 
         }
-        RuntimeValue = InitialValue;
+        //RuntimeValue = InitialValue;
         EditorGUI.ProgressBar(new Rect(rect.x, rect.y + (line_height * 2), rect.width, line_height + 2), Percent, ToString());
         //GUI.Label(new Rect(rect.x, rect.y + line_height, rect.width, line_height - 2), "Runtime: " + RuntimeValue.ToString() + " | Default: " + InitialValue.ToString());
     }

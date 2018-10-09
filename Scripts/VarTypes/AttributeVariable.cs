@@ -163,7 +163,7 @@ public class AttributeVariable : SharedVariable<float>
             InitialValue = EditorGUI.Slider(new Rect(rect.x + (rect.width / 2), rect.y, rect.width / 2, line_height - 2), InitialValue, 0, InitialMax);
             InitialMax = EditorGUI.FloatField(new Rect(rect.x, rect.y + line_height, rect.width / 3, line_height - 2), InitialMax);
             InitialUnavailable = EditorGUI.FloatField(new Rect(rect.x + rect.width / 3, rect.y + line_height, rect.width / 3, line_height - 2), InitialUnavailable);
-        OnAfterDeserialize();
+        //OnAfterDeserialize();
         Rect r = new Rect(rect.x, rect.y + line_height * 2, rect.width, line_height+4);
         GUI.Box(r, "");
         GUI.Box(new Rect(r.x + 1, r.y + 1, (r.width - 2) * InitialValue / InitialMax, r.height - 2), InitialValue.ToString(), valueStyle);
