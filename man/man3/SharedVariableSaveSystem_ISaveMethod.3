@@ -31,9 +31,11 @@ Inherited by \fBSharedVariableSaveSystem\&.SaveMethod\fP\&.
 .ti -1c
 .RI "string \fBSaveName\fP\fC [get]\fP"
 .br
+.RI "display name for save "
 .ti -1c
 .RI "bool \fBHasSave\fP\fC [get]\fP"
 .br
+.RI "is there save data? "
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -62,6 +64,20 @@ Implemented in \fBSharedVariableSaveSystem\&.SaveBinaryFile\fP, \fBSharedVariabl
 Saves the data 
 .PP
 Implemented in \fBSharedVariableSaveSystem\&.SaveBinaryFile\fP, \fBSharedVariableSaveSystem\&.SavePlayerPrefs\fP, and \fBSharedVariableSaveSystem\&.SaveMethod\fP\&.
+.SH "Property Documentation"
+.PP 
+.SS "bool SharedVariableSaveSystem\&.ISaveMethod\&.HasSave\fC [get]\fP"
+
+.PP
+is there save data? 
+.PP
+Definition at line 18 of file ISaveMethod\&.cs\&.
+.SS "string SharedVariableSaveSystem\&.ISaveMethod\&.SaveName\fC [get]\fP"
+
+.PP
+display name for save 
+.PP
+Definition at line 14 of file ISaveMethod\&.cs\&.
 
 .SH "Author"
 .PP 

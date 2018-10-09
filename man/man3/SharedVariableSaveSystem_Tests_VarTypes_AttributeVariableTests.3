@@ -2,7 +2,8 @@
 .ad l
 .nh
 .SH NAME
-SharedVariableSaveSystem.Tests.VarTypes.AttributeVariableTests
+SharedVariableSaveSystem.Tests.VarTypes.AttributeVariableTests \- test fixture for attribute variable  
+
 .SH SYNOPSIS
 .br
 .PP
@@ -14,20 +15,82 @@ Inherits \fBSharedVariableSaveSystem\&.Tests\&.VarTypes\&.SharedVariableTests< f
 .ti -1c
 .RI "override IEnumerator \fB_00_Setup\fP ()"
 .br
+.RI "setup test data "
 .ti -1c
 .RI "IEnumerator \fB_30_Over\fP ()"
 .br
+.RI "validate that it can't go over the max value "
 .ti -1c
 .RI "IEnumerator \fB_40_Under\fP ()"
 .br
+.RI "validate that it can't go under 0 "
 .ti -1c
 .RI "IEnumerator \fB_50_Unavailable\fP ()"
 .br
+.RI "validate that unavailable reduces max available value "
 .in -1c
 .SS "Additional Inherited Members"
 .SH "Detailed Description"
 .PP 
-Definition at line 9 of file AttributeVariableTests\&.cs\&.
+test fixture for attribute variable 
+
+
+.PP
+Definition at line 12 of file AttributeVariableTests\&.cs\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "override IEnumerator SharedVariableSaveSystem\&.Tests\&.VarTypes\&.AttributeVariableTests\&._00_Setup ()"
+
+.PP
+setup test data 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.PP
+Definition at line 25 of file AttributeVariableTests\&.cs\&.
+.SS "IEnumerator SharedVariableSaveSystem\&.Tests\&.VarTypes\&.AttributeVariableTests\&._30_Over ()"
+
+.PP
+validate that it can't go over the max value 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.PP
+Definition at line 47 of file AttributeVariableTests\&.cs\&.
+.SS "IEnumerator SharedVariableSaveSystem\&.Tests\&.VarTypes\&.AttributeVariableTests\&._40_Under ()"
+
+.PP
+validate that it can't go under 0 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.PP
+Definition at line 61 of file AttributeVariableTests\&.cs\&.
+.SS "IEnumerator SharedVariableSaveSystem\&.Tests\&.VarTypes\&.AttributeVariableTests\&._50_Unavailable ()"
+
+.PP
+validate that unavailable reduces max available value 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.PP
+Definition at line 75 of file AttributeVariableTests\&.cs\&.
 
 .SH "Author"
 .PP 

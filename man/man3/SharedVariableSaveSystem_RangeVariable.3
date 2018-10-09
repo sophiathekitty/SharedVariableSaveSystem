@@ -21,6 +21,10 @@ Inherits \fBSharedVariableSaveSystem\&.SharedVariable< T >\fP\&.
 
 .in +1c
 .ti -1c
+.RI "bool \fBDescending\fP"
+.br
+.RI "Inverts the percentage value of the range\&. MaxValue becomes 0% of the range "
+.ti -1c
 .RI "float \fBMinValue\fP"
 .br
 .RI "Lowest possible value "
@@ -28,10 +32,6 @@ Inherits \fBSharedVariableSaveSystem\&.SharedVariable< T >\fP\&.
 .RI "float \fBMaxValue\fP"
 .br
 .RI "Largest possible value "
-.ti -1c
-.RI "bool \fBDescending\fP"
-.br
-.RI "Inverts the percentage value of the range\&. MaxValue becomes 0% of the range "
 .in -1c
 .SS "Properties"
 
@@ -58,7 +58,7 @@ Base abstract class for a range variable\&. Adds range limit utils
 .PP
 
 .PP
-Definition at line 10 of file RangeVariable\&.cs\&.
+Definition at line 11 of file RangeVariable\&.cs\&.
 .SH "Member Function Documentation"
 .PP 
 .SS "void \fBSharedVariableSaveSystem\&.RangeVariable\fP< T >\&.FitToRange ()"
@@ -66,7 +66,7 @@ Definition at line 10 of file RangeVariable\&.cs\&.
 .PP
 Ensures that the float value is within the min and max of the range\&. 
 .PP
-Definition at line 54 of file RangeVariable\&.cs\&.
+Definition at line 58 of file RangeVariable\&.cs\&.
 .SH "Member Data Documentation"
 .PP 
 .SS "bool \fBSharedVariableSaveSystem\&.RangeVariable\fP< T >\&.Descending"
@@ -74,19 +74,19 @@ Definition at line 54 of file RangeVariable\&.cs\&.
 .PP
 Inverts the percentage value of the range\&. MaxValue becomes 0% of the range 
 .PP
-Definition at line 23 of file RangeVariable\&.cs\&.
+Definition at line 16 of file RangeVariable\&.cs\&.
 .SS "float \fBSharedVariableSaveSystem\&.RangeVariable\fP< T >\&.MaxValue"
 
 .PP
 Largest possible value 
 .PP
-Definition at line 19 of file RangeVariable\&.cs\&.
+Definition at line 25 of file RangeVariable\&.cs\&.
 .SS "float \fBSharedVariableSaveSystem\&.RangeVariable\fP< T >\&.MinValue"
 
 .PP
 Lowest possible value 
 .PP
-Definition at line 15 of file RangeVariable\&.cs\&.
+Definition at line 21 of file RangeVariable\&.cs\&.
 .SH "Property Documentation"
 .PP 
 .SS "abstract float \fBSharedVariableSaveSystem\&.RangeVariable\fP< T >\&.FloatValue\fC [get]\fP, \fC [set]\fP"
@@ -94,7 +94,7 @@ Definition at line 15 of file RangeVariable\&.cs\&.
 .PP
 Value used to calculate percentage of range\&. Used to access RuntimeValue for percent calculations
 .PP
-Definition at line 28 of file RangeVariable\&.cs\&.
+Definition at line 31 of file RangeVariable\&.cs\&.
 .SS "float \fBSharedVariableSaveSystem\&.RangeVariable\fP< T >\&.Percent\fC [get]\fP, \fC [set]\fP"
 
 .PP
@@ -102,7 +102,7 @@ Where the Runtime value is between the min and max values of the range\&. MinVal
 .PP
 If Descending is true MinValue is 100% and MaxValue is 0%
 .PP
-Definition at line 35 of file RangeVariable\&.cs\&.
+Definition at line 38 of file RangeVariable\&.cs\&.
 
 .SH "Author"
 .PP 
