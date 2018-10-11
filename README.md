@@ -5,11 +5,11 @@ Based on this tutorial: *[architect with scriptable objects](https://unity3d.com
 
 ## How to use
 
-* Create a new *SaveObject* (under the assset create menu)
-* Create *Variables* you want to have saved (Asssets->Create->Variables)
+* Create a new *SaveObject* (under the asset create menu)
+* Create *Variables* you want to have saved (Assets->Create->Variables)
 * Put *Variables* in folder with the same name as the *SaveObject*
 * Add *Variables* to *SaveObject's* Data list. (click search for variables to find all variables under /[SaveObjectName]/ folder.)
-* Write classes use *Variables* to store and share data. 
+* Write classes use *Variables* to store and share data.
 
 ### [Documentation](https://sophiathekitty.github.io/SharedVariableSaveSystem/html/index.html)
 
