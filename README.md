@@ -9,7 +9,10 @@ Based on this tutorial: *[architect with scriptable objects](https://unity3d.com
 * Create *Variables* you want to have saved (Assets->Create->Variables)
 * Put *Variables* in folder with the same name as the *SaveObject*
 * Add *Variables* to *SaveObject's* Data list. (click search for variables to find all variables under /[SaveObjectName]/ folder.)
+* Create *SaveMethod* for where you want to save (Binary or PlayerPrefs)
+* Add *SaveMethod* to save *SaveObject*
 * Write classes use *Variables* to store and share data.
+* You can write your own *SaveMethods* to extend the system to save to remote locations.
 
 ### [Documentation](https://sophiathekitty.github.io/SharedVariableSaveSystem/html/index.html)
 
