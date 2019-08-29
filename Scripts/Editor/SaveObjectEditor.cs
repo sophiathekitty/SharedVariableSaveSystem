@@ -7,7 +7,7 @@ using UnityEditorInternal;
 namespace SharedVariableSaveSystem
 {
     /// <summary>
-    /// Custome editor for save objects
+    /// Custom editor for save objects
     /// </summary>
     [CustomEditor(typeof(SaveObject))]
     [CanEditMultipleObjects]
@@ -35,6 +35,10 @@ namespace SharedVariableSaveSystem
 
         private void OnEnable()
         {
+            if(saveObject.SaveLocations == null)
+                saveObject.SaveLocations = new List<SaveMethod>();
+            if(saveObject.Data == null)
+                saveObject.Data = new List<SavableVariable>();
             saveLocationList = new ReorderableList(saveObject.SaveLocations, typeof(List<SaveMethod>), true, true, true, true);
             saveLocationList.drawHeaderCallback = OnDrawHeaderLocation;
             saveLocationList.drawElementCallback = OnDrawElementLocation; ;
